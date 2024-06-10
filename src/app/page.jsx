@@ -11,7 +11,7 @@ export default function Home() {
 				<Image
 					alt='garden tree'
 					width={"500"}
-					height={"400"}
+					height={"375"}
 					src='https://latestartbucket.s3.us-east-2.amazonaws.com/park-tree.png'
 				/>
 			</div>
