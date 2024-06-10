@@ -1,4 +1,8 @@
 * {
 	padding: 0;
 	margin: 0;
+	color: rgb(34, 34, 34);
+}
+html {
+	padding: 30px;
 }
