@@ -61,7 +61,10 @@ export default function Home() {
 					<br />
 					<p>
 						Hello! My name is{" "}
-						<a href='https://www.linkedin.com/in/nicholas-egner/'>
+						<a
+							href='https://www.linkedin.com/in/nicholas-egner/'
+							target='_blank'
+						>
 							Nicholas Egner.
 						</a>
 					</p>
