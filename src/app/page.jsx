@@ -140,6 +140,7 @@ export default function Home() {
 										type='number'
 										onChange={(event) => setAge(event.target.value)}
 										id='userAge'
+										value={age}
 									/>
 									<button onClick={ageHandler}>Enter</button>
 								</>
