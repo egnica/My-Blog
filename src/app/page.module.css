@@ -1,22 +1,37 @@
-.main {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	padding: 6rem;
-	min-height: 100vh;
-}
-
 .picture_text_contain {
 	display: flex;
-	justify-content: space-between;
+	min-width: 600px;
+	justify-content: center;
 	align-items: center;
 	padding: 2rem 6rem;
 }
 .image_contain {
-	max-width: 400px;
+	max-width: 300px;
 	min-width: 200px;
 }
 .text_button_contain {
 	padding: 20px;
+	max-width: 400px;
+}
+.reveal {
+	cursor: pointer;
+	transition: 0.2s;
+}
+.reveal:hover {
+	font-size: large;
+	color: purple;
+}
+.code {
+	background-color: rgba(0, 0, 0, 0.725);
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.x_out {
+	font-size: 20px;
+	color: white;
+	float: right;
+	cursor: pointer;
+}
+.code h2 {
+	color: white;
 }
