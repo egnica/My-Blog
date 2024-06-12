@@ -7,7 +7,7 @@
 }
 .image_contain {
 	max-width: 300px;
-	min-width: 200px;
+	min-width: 300px;
 }
 .text_button_contain {
 	padding: 20px;
