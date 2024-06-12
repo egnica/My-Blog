@@ -1,5 +1,6 @@
 .picture_text_contain {
 	display: flex;
+	flex-direction: row;
 	min-width: 600px;
 	justify-content: center;
 	align-items: center;
@@ -34,4 +35,17 @@
 }
 .code h2 {
 	color: white;
+}
+
+/* 480 width */
+
+@media (max-width: 480px) {
+	.picture_text_contain {
+		flex-direction: column;
+		min-width: 0;
+		padding: 20px 5px;
+	}
+	.text_button_contain {
+		padding: 10px;
+	}
 }
