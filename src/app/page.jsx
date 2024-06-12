@@ -2,6 +2,7 @@
 import styles from "./page.module.css";
 import Image from "next/image";
 import {useState} from "react";
+import Link from "next/link";
 
 export default function Home() {
 	const [reveal, setReveal] = useState(false);
@@ -110,7 +111,7 @@ export default function Home() {
 								</code>
 								<br />
 								<br />
-								<h2>Told you</h2>
+								<h2 style={{textAlign: "center"}}>Told you</h2>
 							</div>
 						)}
 						The purpose of this blog is to experiment with various web
@@ -148,7 +149,7 @@ export default function Home() {
 					<br />
 
 					<p>If you are interested in checking out more...</p>
-					<div>CLICK HERE</div>
+					<Link href={"/"}>CLICK HERE</Link>
 				</div>
 			</div>
 		</>

@@ -13,7 +13,7 @@ const roboto = Roboto({
 
 export const metadata = {
 	title: "Late Start Dev",
-	description: "This is Nick's blog",
+	description: "This is Nicholas Egner's blog",
 };
 
 export default function RootLayout({children}) {
