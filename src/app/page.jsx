@@ -27,7 +27,7 @@ export default function Home() {
 			? (diffYear = year - startYear - 1) && (diffMonth = month + 9)
 			: (diffYear = year - startYear) && (diffMonth = month - startMonth + 1);
 
-		diffMonth < 2 ? (monthString = "month") : (monthString = "months");
+		diffMonth = 1 ? (monthString = "month") : (monthString = "months");
 		return `${diffYear} years and ${diffMonth} ${monthString}`;
 	};
 
@@ -109,7 +109,7 @@ export default function Home() {
 									<br /> : (diffYear = year - startYear) && (diffMonth = month -
 									startMonth + 1);
 									<br />
-									<br /> diffMonth &lt; 2 ? (monthString = &quot;month&quot;) :
+									<br /> diffMonth = 1 ? (monthString = &quot;month&quot;) :
 									(monthString = &quot;months&quot;);
 								</code>
 								<br />
