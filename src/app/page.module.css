@@ -6,3 +6,17 @@
 	padding: 6rem;
 	min-height: 100vh;
 }
+
+.picture_text_contain {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2rem 6rem;
+}
+.image_contain {
+	max-width: 400px;
+	min-width: 200px;
+}
+.text_button_contain {
+	padding: 20px;
+}
