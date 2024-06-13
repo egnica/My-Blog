@@ -40,23 +40,24 @@
 	padding: 10px;
 	margin-bottom: 10px;
 	position: relative;
-	animation: mymove 0.5s;
+	animation: move 0.5s;
 	animation-fill-mode: forwards;
 	animation-timing-function: ease-in;
 }
 .age {
 	animation: fade 0.7s;
 }
+
 @keyframes fade {
 	from {
 		opacity: 0;
 	}
 	to {
-		left: 0px;
+		opacity: 1;
 	}
 }
 
-@keyframes mymove {
+@keyframes move {
 	from {
 		left: 100px;
 		opacity: 0;
@@ -91,7 +92,7 @@
 		padding: 10px 20px;
 	}
 	.image_contain {
-		max-width: 250px;
-		min-width: 250px;
+		max-width: 200px;
+		min-width: 200px;
 	}
 }
