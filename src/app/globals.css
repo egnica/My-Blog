@@ -1,8 +1,9 @@
 * {
 	padding: 0;
 	margin: 0;
-	color: rgb(34, 34, 34);
+	color: rgb(54, 54, 54);
 }
 html {
 	padding: 30px;
+	background-color: #ffeded;
 }

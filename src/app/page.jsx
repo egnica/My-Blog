@@ -20,14 +20,16 @@ export default function Home() {
 
 		const month = date.getMonth();
 		const year = date.getFullYear();
-		console.log(date);
+
 		const startMonth = 4;
 		const startYear = 2020;
+
 		month < startMonth
 			? (diffYear = year - startYear - 1) && (diffMonth = month + 9)
 			: (diffYear = year - startYear) && (diffMonth = month - startMonth + 1);
+		console.log(diffMonth);
 
-		diffMonth = 1 ? (monthString = "month") : (monthString = "months");
+		diffMonth == 1 ? (monthString = "month") : (monthString = "months");
 		return `${diffYear} years and ${diffMonth} ${monthString}`;
 	};
 
@@ -61,6 +63,7 @@ export default function Home() {
 					<p>
 						Hello! My name is{" "}
 						<a
+							style={{textDecoration: "none", cursor: "pointer"}}
 							href='https://www.linkedin.com/in/nicholas-egner/'
 							target='_blank'
 						>
@@ -109,7 +112,7 @@ export default function Home() {
 									<br /> : (diffYear = year - startYear) && (diffMonth = month -
 									startMonth + 1);
 									<br />
-									<br /> diffMonth = 1 ? (monthString = &quot;month&quot;) :
+									<br /> diffMonth == 1 ? (monthString = &quot;month&quot;) :
 									(monthString = &quot;months&quot;);
 								</code>
 								<br />
@@ -153,7 +156,10 @@ export default function Home() {
 					<br />
 
 					<p>If you are interested in checking out more...</p>
-					<Link href={"/display_blog"}>CLICK HERE</Link>
+					<br />
+					<Link style={{textDecoration: "none"}} href={"/display_blog"}>
+						<div className={styles.enterBtn}>CLICK HERE</div>
+					</Link>
 				</div>
 			</div>
 		</>
