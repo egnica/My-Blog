@@ -47,7 +47,6 @@ export default function Home() {
 		<>
 			<div className={styles.picture_text_contain}>
 				<Image
-					style={{borderRadius: "20px"}}
 					className={styles.image_contain}
 					width={1825}
 					height={2499}
@@ -87,6 +86,7 @@ export default function Home() {
 									<p
 										className={styles.x_out}
 										onClick={() => setReveal(!reveal)}
+										style={{color: "white"}}
 									>
 										x
 									</p>
@@ -122,11 +122,11 @@ export default function Home() {
 						starting over in a new career.
 					</p>
 					<br />
-					<p onClick={() => setAgeReveal(!reveal)} className={styles.reveal}>
+					<p onClick={() => setAgeReveal(!ageReveal)} className={styles.reveal}>
 						How old am I you ask?
 					</p>
 					{ageReveal && (
-						<div>
+						<div className={styles.age}>
 							<br />
 							<p>
 								Well, if we are getting to know each other like that, how old
@@ -146,14 +146,14 @@ export default function Home() {
 								</>
 							)}
 
-							{secondAgeReveal && <p>{response}</p>}
+							{secondAgeReveal && <p className={styles.age}>{response}</p>}
 						</div>
 					)}
 
 					<br />
 
 					<p>If you are interested in checking out more...</p>
-					<Link href={"/"}>CLICK HERE</Link>
+					<Link href={"/display_blog"}>CLICK HERE</Link>
 				</div>
 			</div>
 		</>
