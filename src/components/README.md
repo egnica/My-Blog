@@ -1,11 +1,13 @@
-Fade Component Example
+# Fade Component Example
 
 This component will fade in and out based on a boolean state prop.
 
-Description
+## Description
+
 The Fade component needs a prop called 'transfer' to manage its visibility state. The initial state value in the parent component should be set to false.
 
-Example
+## Example
+
 Define the state in your parent component:
 
 ```jsx

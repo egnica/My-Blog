@@ -1,20 +1,17 @@
 "use client";
 import {useEffect, useState} from "react";
 import styles from "./page.module.css";
-import {useRef} from "react";
 
 const Fade = ({children, transfer}) => {
 	const [fade, setFade] = useState(transfer);
 	const [delay, setDelay] = useState(transfer);
-	const [divHeight, setDivHeight] = useState();
-	const thisDiv = useRef();
 
 	const fadeFunction = (transfer) => {
 		setFade(transfer);
 		fade
 			? setTimeout(() => {
 					setDelay(transfer);
-			  }, 900)
+			  }, 1000)
 			: setDelay(transfer);
 	};
 
@@ -28,14 +25,11 @@ const Fade = ({children, transfer}) => {
 
 	return (
 		<>
-			<p>{divHeight}</p>
-			<div ref={thisDiv} id='myDiv'>
-				{delay && (
-					<div className={renderStyle()}>
-						<p>{children}</p>
-					</div>
-				)}
-			</div>
+			{delay && (
+				<div className={renderStyle()}>
+					<p>{children}</p>
+				</div>
+			)}
 		</>
 	);
 };

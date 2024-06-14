@@ -1,33 +1,41 @@
 .fade_in {
-	scroll-behavior: smooth;
 	animation: fade-in 1s;
 	transition-timing-function: ease;
+	animation-fill-mode: forwards;
 }
 
 .fade_out {
-	scroll-behavior: smooth;
 	animation: fade-out 1s;
 	transition-timing-function: ease;
+	animation-fill-mode: forwards;
 }
 /* ex */
 @keyframes fade-in {
 	from {
 		opacity: 0;
-		height: 0px;
+		height: 0;
+	}
+	50% {
+		opacity: 0.5;
+		height: 50vm;
 	}
 	to {
 		opacity: 1;
-		height: fit-content;
+		height: 100vm;
 	}
 }
 
 @keyframes fade-out {
 	from {
 		opacity: 1;
-		height: fit-content;
+		height: 100vm;
+	}
+	50% {
+		opacity: 0.5;
+		height: 50vm;
 	}
 	to {
 		opacity: 0;
-		height: 0px;
+		height: 0;
 	}
 }
