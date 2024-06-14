@@ -27,7 +27,6 @@ export default function Home() {
 		month < startMonth
 			? (diffYear = year - startYear - 1) && (diffMonth = month + 9)
 			: (diffYear = year - startYear) && (diffMonth = month - startMonth + 1);
-		console.log(diffMonth);
 
 		diffMonth == 1 ? (monthString = "month") : (monthString = "months");
 		return `${diffYear} years and ${diffMonth} ${monthString}`;

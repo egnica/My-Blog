@@ -45,15 +45,32 @@
 	animation-timing-function: ease-in;
 }
 .age {
-	animation: fade 0.7s;
+	animation: fade-in 0.7s;
 }
 
-@keyframes fade {
+.fade_in {
+	animation: fade-in 0.7s;
+}
+
+.fade_out {
+	animation: fade-out 0.7s;
+}
+
+@keyframes fade-in {
 	from {
 		opacity: 0;
 	}
 	to {
 		opacity: 1;
+	}
+}
+
+@keyframes fade-out {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
 	}
 }
 
