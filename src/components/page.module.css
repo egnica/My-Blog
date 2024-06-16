@@ -1,5 +1,6 @@
 .fade_in {
 	display: grid;
+
 	animation: fade-in 1s;
 	transition-timing-function: ease;
 	animation-fill-mode: forwards;
@@ -11,33 +12,26 @@
 	transition-timing-function: ease;
 	animation-fill-mode: forwards;
 }
+
 /* ex */
 @keyframes fade-in {
 	from {
-		opacity: 0;
-		height: 0;
-	}
-	50% {
-		opacity: 0.5;
-		height: 50vm;
+		opacity: 10%;
+		grid-template-rows: 0fr;
 	}
 	to {
-		opacity: 1;
-		height: 100vm;
+		opacity: 100%;
+		grid-template-rows: 1fr;
 	}
 }
 
 @keyframes fade-out {
 	from {
-		opacity: 1;
-		height: 100vm;
-	}
-	50% {
-		opacity: 0.5;
-		height: 50vm;
+		opacity: 100%;
+		grid-template-rows: 1fr;
 	}
 	to {
-		opacity: 0;
-		height: 0;
+		opacity: 10%;
+		grid-template-rows: 0fr;
 	}
 }

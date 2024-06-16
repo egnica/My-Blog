@@ -27,7 +27,7 @@ const Fade = ({children, transfer}) => {
 		<>
 			{delay && (
 				<div className={renderStyle()}>
-					<p>{children}</p>
+					<p style={{overflow: "hidden"}}>{children}</p>
 				</div>
 			)}
 		</>

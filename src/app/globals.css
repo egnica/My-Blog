@@ -7,3 +7,29 @@ html {
 	padding: 30px;
 	background-color: #ffeded;
 }
+.enterBtn {
+	display: grid;
+	place-content: center;
+	padding: 5px;
+	border: 2px solid rgba(43, 43, 43, 0.363);
+	border-radius: 10px;
+	margin: 5px;
+	color: #5f5f5f;
+	font-size: large;
+	font-weight: 800;
+	transition: ease-in 0.2s;
+	cursor: pointer;
+	max-width: 300px;
+	height: 80px;
+	background-color: #fee3e3;
+	color: rgba(0, 0, 0, 0.639);
+}
+.enterBtn:hover {
+	transform: scale(1.05);
+	box-shadow: 5px 5px 10px grey;
+}
+.enterBtn:active {
+	top: 2px;
+	left: 1px;
+	box-shadow: none;
+}

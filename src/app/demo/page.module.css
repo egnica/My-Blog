@@ -53,8 +53,3 @@
 	transform: scale(1.05);
 	box-shadow: 5px 5px 10px grey;
 }
-.enterBtn:active {
-	top: 2px;
-	left: 1px;
-	box-shadow: none;
-}
