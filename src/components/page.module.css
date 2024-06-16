@@ -15,23 +15,35 @@
 
 /* ex */
 @keyframes fade-in {
-	from {
-		opacity: 10%;
+	0% {
+		opacity: 0%;
 		grid-template-rows: 0fr;
 	}
-	to {
-		opacity: 100%;
+	25% {
+		opacity: 10%;
+	}
+	75% {
+		opacity: 80%;
+	}
+	100% {
 		grid-template-rows: 1fr;
+		opacity: 100%;
 	}
 }
 
 @keyframes fade-out {
-	from {
+	0% {
 		opacity: 100%;
 		grid-template-rows: 1fr;
 	}
-	to {
-		opacity: 10%;
+	25% {
+		opacity: 20%;
+	}
+	75% {
+		opacity: 0%;
+	}
+	100% {
+		opacity: 0%;
 		grid-template-rows: 0fr;
 	}
 }
