@@ -1,10 +1,12 @@
 .fade_in {
+	display: grid;
 	animation: fade-in 1s;
 	transition-timing-function: ease;
 	animation-fill-mode: forwards;
 }
 
 .fade_out {
+	display: grid;
 	animation: fade-out 1s;
 	transition-timing-function: ease;
 	animation-fill-mode: forwards;
