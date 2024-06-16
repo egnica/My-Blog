@@ -34,6 +34,7 @@ const Blog_Post = () => {
 				it’s usually a sign that you need to extract some custom Hooks for
 				common behaviors your components rely on.
 			</p>
+			{/* <p dangerouslySetInnerHTML={{__html: person.bio}} /> */}
 		</>
 	);
 };

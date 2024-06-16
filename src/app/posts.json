@@ -1,0 +1,30 @@
+{
+    "key": [
+        {
+            "id": "",
+            "query": "",
+            "title": "",
+            "description": "",
+            "article_image": "",
+            "meta_image": "",
+            "keywords": "",
+            "blog_url": "",
+            "vibe_audio": "",
+            "body_1": "",
+            "image_1": "",
+            "video_1": "",
+            "body_2": "",
+            "image_2": "",
+            "video_2": "",
+            "body_3": "",
+            "link": ""
+        }
+    ],
+    "posts": [
+        {
+            "id": "1",
+            "title": "Hello World",
+            "description": ""
+        }
+    ]
+}
