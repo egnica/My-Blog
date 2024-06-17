@@ -26,7 +26,14 @@
 }
 .latestCont {
 	display: flex;
+	flex-direction: row;
 }
 .latestImg {
 	width: 80%;
+}
+@media (max-width: 480px) {
+	.latestCont {
+		flex-direction: column;
+		padding: 10px 2px;
+	}
 }

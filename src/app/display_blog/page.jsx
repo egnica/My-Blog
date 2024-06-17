@@ -18,7 +18,7 @@ const Display = () => {
 			articleImage: Posts.posts[lastIndex - 1].article_image,
 		});
 	}, []);
-	console.log(lastPost);
+
 	return (
 		<>
 			<h1>Blogs</h1>
