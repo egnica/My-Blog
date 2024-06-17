@@ -2,6 +2,7 @@
 import styles from "./page.module.css";
 import {useState} from "react";
 import Fade from "@/components/Fade";
+import Posts from "@/app/posts.json";
 
 const Display = () => {
 	const [fade, setFade] = useState(false);

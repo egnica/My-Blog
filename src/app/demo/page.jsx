@@ -42,9 +42,10 @@ const Display = () => {
 			</p>
 			<Fade transfer={fade}>
 				Using dangerouslySetInnerHTML in React can be risky if not handled
-				properly, but it's not inherently bad. It's a method used to set HTML
-				content from code directly within a React component, allowing developers
-				to inject raw HTML into the DOM. Here are some key points to consider
+				properly, but it&apos;s not inherently bad. It&apos;s a method used to
+				set HTML content from code directly within a React component, allowing
+				developers to inject raw HTML into the DOM. Here are some key points to
+				consider
 			</Fade>
 			<p>
 				W3Schools is optimized for learning and training. Examples might be

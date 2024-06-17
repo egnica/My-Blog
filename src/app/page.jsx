@@ -82,44 +82,53 @@ export default function Home() {
 						Wanna see??
 					</p>
 					<br />
+					<Fade transfer={reveal}>
+						<div style={{background: "black", padding: "10px"}}>
+							<code style={{color: "white"}}>
+								<span
+									className={styles.x_out}
+									onClick={() => setReveal(!reveal)}
+									style={{color: "white"}}
+								>
+									x
+								</span>
+								let diffMonth = 0; <br />
+								let diffYear = 0; <br />
+								let monthString;
+								<br />
+								<br />
+								const month = date.getMonth();
+								<br />
+								const year = date.getFullYear();
+								<br />
+								<br />
+								const startMonth = 4; <br />
+								const startYear = 2020;
+								<br />
+								<br />
+								month &lt; startMonth ? (diffYear = year - startYear - 1) &&
+								(diffMonth = month + 9)
+								<br /> : (diffYear = year - startYear) && (diffMonth = month -
+								startMonth + 1);
+								<br />
+								<br /> diffMonth == 1 ? (monthString = &quot;month&quot;) :
+								(monthString = &quot;months&quot;);
+								<br />
+								<br />
+								<span
+									style={{
+										fontWeight: "bold",
+										color: "white",
+									}}
+								>
+									Told You!
+								</span>
+							</code>
+						</div>
+						<br />
+						<br />
+					</Fade>
 					<p>
-						<Fade transfer={reveal}>
-							<div style={{background: "black", padding: "10px"}}>
-								<code style={{color: "white"}}>
-									<p
-										className={styles.x_out}
-										onClick={() => setReveal(!reveal)}
-										style={{color: "white"}}
-									>
-										x
-									</p>
-									let diffMonth = 0; <br />
-									let diffYear = 0; <br />
-									let monthString;
-									<br />
-									<br />
-									const month = date.getMonth();
-									<br />
-									const year = date.getFullYear();
-									<br />
-									<br />
-									const startMonth = 4; <br />
-									const startYear = 2020;
-									<br />
-									<br />
-									month &lt; startMonth ? (diffYear = year - startYear - 1) &&
-									(diffMonth = month + 9)
-									<br /> : (diffYear = year - startYear) && (diffMonth = month -
-									startMonth + 1);
-									<br />
-									<br /> diffMonth == 1 ? (monthString = &quot;month&quot;) :
-									(monthString = &quot;months&quot;);
-								</code>
-							</div>
-							<br />
-							<br />
-							<h2 style={{textAlign: "center"}}>Told You!</h2>
-						</Fade>
 						The purpose of this blog is to experiment with various web
 						development techniques and share my experiences as an older guy
 						starting over in a new career.
@@ -128,7 +137,6 @@ export default function Home() {
 					<p onClick={() => setAgeReveal(!ageReveal)} className={styles.reveal}>
 						How old am I you ask?
 					</p>
-
 					<Fade transfer={ageReveal} className={styles.age}>
 						<br />
 						<p>
@@ -151,9 +159,7 @@ export default function Home() {
 
 						{secondAgeReveal && <p className={styles.age}>{response}</p>}
 					</Fade>
-
 					<br />
-
 					<p>If you are interested in checking out more...</p>
 					<br />
 					<Link style={{textDecoration: "none"}} href={"/display_blog"}>
