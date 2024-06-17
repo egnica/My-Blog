@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import {useState} from "react";
 import Link from "next/link";
+import Fade from "@/components/Fade";
 
 export default function Home() {
 	const [reveal, setReveal] = useState(false);
@@ -82,8 +83,8 @@ export default function Home() {
 					</p>
 					<br />
 					<p>
-						{reveal && (
-							<div className={styles.code}>
+						<Fade transfer={reveal}>
+							<div style={{background: "black", padding: "10px"}}>
 								<code style={{color: "white"}}>
 									<p
 										className={styles.x_out}
@@ -114,11 +115,11 @@ export default function Home() {
 									<br /> diffMonth == 1 ? (monthString = &quot;month&quot;) :
 									(monthString = &quot;months&quot;);
 								</code>
-								<br />
-								<br />
-								<h2 style={{textAlign: "center"}}>Told You!</h2>
 							</div>
-						)}
+							<br />
+							<br />
+							<h2 style={{textAlign: "center"}}>Told You!</h2>
+						</Fade>
 						The purpose of this blog is to experiment with various web
 						development techniques and share my experiences as an older guy
 						starting over in a new career.
@@ -127,30 +128,29 @@ export default function Home() {
 					<p onClick={() => setAgeReveal(!ageReveal)} className={styles.reveal}>
 						How old am I you ask?
 					</p>
-					{ageReveal && (
-						<div className={styles.age}>
-							<br />
-							<p>
-								Well, if we are getting to know each other like that, how old
-								are you?
-							</p>
 
-							<br />
-							{!secondAgeReveal && (
-								<>
-									<input
-										type='number'
-										onChange={(event) => setAge(event.target.value)}
-										id='userAge'
-										value={age}
-									/>
-									<button onClick={ageHandler}>Enter</button>
-								</>
-							)}
+					<Fade transfer={ageReveal} className={styles.age}>
+						<br />
+						<p>
+							Well, if we are getting to know each other like that, how old are
+							you?
+						</p>
 
-							{secondAgeReveal && <p className={styles.age}>{response}</p>}
-						</div>
-					)}
+						<br />
+						{!secondAgeReveal && (
+							<>
+								<input
+									type='number'
+									onChange={(event) => setAge(event.target.value)}
+									id='userAge'
+									value={age}
+								/>
+								<button onClick={ageHandler}>Enter</button>
+							</>
+						)}
+
+						{secondAgeReveal && <p className={styles.age}>{response}</p>}
+					</Fade>
 
 					<br />
 
