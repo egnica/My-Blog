@@ -1,37 +1,3 @@
-.fade_in {
-	scroll-behavior: smooth;
-	animation: fade-in 1.5s;
-	transition-timing-function: ease;
-}
-
-.fade_out {
-	scroll-behavior: smooth;
-	animation: fade-out 1.5s;
-	transition-timing-function: ease;
-}
-/* ex */
-@keyframes fade-in {
-	from {
-		opacity: 0;
-		height: 0px;
-	}
-	to {
-		opacity: 1;
-		height: fit-content;
-	}
-}
-
-@keyframes fade-out {
-	from {
-		opacity: 1;
-		height: fit-content;
-	}
-	to {
-		opacity: 0;
-		height: 0px;
-	}
-}
-
 .enterBtn {
 	display: grid;
 	place-content: center;
@@ -57,4 +23,10 @@
 	top: 2px;
 	left: 1px;
 	box-shadow: none;
+}
+.latestCont {
+	display: flex;
+}
+.latestImg {
+	width: 80%;
 }
