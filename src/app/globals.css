@@ -5,7 +5,8 @@
 }
 html {
 	padding: 30px;
-	background-color: #ffeded;
+	background-color: #c1c2cf;
+	background-image: url(https://supergeekery.com/static/grid_pattern_1x.webp);
 }
 .enterBtn {
 	display: grid;
