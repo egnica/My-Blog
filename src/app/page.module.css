@@ -4,13 +4,12 @@
 	min-width: 600px;
 	justify-content: center;
 	align-items: center;
-	padding: 4rem 6rem;
+	padding: 2rem;
 	border-radius: 50px;
-	background: #d2cff9;
-
-	box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+	background: #b6b6b6c0;
+	box-shadow: 20px 20px 60px #313131, -20px -20px 60px #ffffff;
 	margin: 0 10%;
-	border: 9px solid rgba(116, 116, 255, 0.493);
+	border: 9px solid rgba(83, 42, 187, 0.493);
 }
 .image_contain {
 	max-width: 350px;
