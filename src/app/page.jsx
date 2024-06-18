@@ -1,7 +1,7 @@
 "use client";
 import styles from "./page.module.css";
 import Image from "next/image";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Link from "next/link";
 import Fade from "@/components/Fade";
 
@@ -11,6 +11,11 @@ export default function Home() {
 	const [secondAgeReveal, setSecondAgeReveal] = useState(false);
 	const [response, setResponse] = useState("");
 	const [age, setAge] = useState(0);
+	const [color, setColor] = useState("#b6b6b6c0");
+
+	useEffect(() => {}, []);
+
+	// document.documentElement.style.backgroundColor = color;
 
 	const timeAsDev = () => {
 		const date = new Date();

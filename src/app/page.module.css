@@ -6,7 +6,7 @@
 	align-items: center;
 	padding: 2rem;
 	border-radius: 50px;
-	background: #b6b6b6c0;
+	background: #ffffff93;
 	box-shadow: 20px 20px 60px #313131, -20px -20px 60px #ffffff;
 	margin: 0 10%;
 	border: 9px solid rgba(83, 42, 187, 0.493);
@@ -130,7 +130,8 @@
 		flex-direction: column;
 		min-width: 0;
 		padding: 20px 5px;
-		margin: 0 1%;
+
+		border: none;
 	}
 	.text_button_contain {
 		padding: 10px 20px;
