@@ -1,17 +1,9 @@
-"use client";
 import styles from "./page.module.css";
-import {useState, useEffect} from "react";
 import Posts from "@/app/posts.json";
 import Image from "next/image";
 
 const Display = () => {
 	const lastP = Posts.posts.slice(-1)[0];
-	const [lastPost] = useState({
-		title: lastP.title,
-		description: lastP.description,
-		articleImage: lastP.article_image,
-		date: lastP.date,
-	});
 
 	return (
 		<>
@@ -19,19 +11,19 @@ const Display = () => {
 			<div className={styles.latestCont}>
 				<div className={styles.latestImg}>
 					<Image
-						src={lastPost.articleImage}
+						src={lastP.article_image}
 						width={1200}
 						height={630}
-						alt={lastPost.title}
+						alt={lastP.title}
 						priority
 						layout='responsive'
 					/>
 				</div>
 				<div className={styles.latestContent}>
 					<>
-						<h2>{lastPost.title}</h2>
-						<p>{lastPost.description}</p>
-						<p className={styles.latestDate}>{lastPost.date}</p>
+						<h2>{lastP.title}</h2>
+						<p>{lastP.description}</p>
+						<p className={styles.latestDate}>{lastP.date}</p>
 					</>
 				</div>
 			</div>
