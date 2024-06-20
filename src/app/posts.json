@@ -1,7 +1,7 @@
 {
     "key": [
         {
-            "id": "",
+            "id": "000",
             "query": "",
             "title": "",
             "description": "",
@@ -9,7 +9,7 @@
             "article_image": "",
             "meta_image": "",
             "keywords": "",
-            "featured": "yes",
+            "featured": "",
             "blog_url": "",
             "vibe_audio": "",
             "body_1": "",
@@ -24,7 +24,7 @@
     ],
     "posts": [
         {
-            "id": "1",
+            "id": "001",
             "query": "",
             "title": "Hello World",
             "description": "Once you have done this, you can start creating pages in the src/pages folder. For example, to create a new page called home, you would create a file called home.js in the src/pages folder.",
@@ -37,7 +37,7 @@
             "body_1": "Creating a folder to hold the pages folder can be a good way to organize your application code, especially if you have a large number of pages. It can also make it easier to share code between pages, as you can easily move pages and their associated components between folders."
         },
         {
-            "id": "2",
+            "id": "002",
             "query": "",
             "title": "my second post",
             "description": "Once you have done this, you can start creating pages in the src/pages folder. For example, to create a new page called home, you would create a file called home.js in the src/pages folder.",
@@ -50,7 +50,7 @@
             "body_1": "Creating a folder to hold the pages folder can be a good way to organize your application code, especially if you have a large number of pages. It can also make it easier to share code between pages, as you can easily move pages and their associated components between folders."
         },
         {
-            "id": "3",
+            "id": "003",
             "query": "",
             "title": "Hello  my third post",
             "description": "Once you have done this, you can start creating pages in the src/pages folder. For example, to create a new page called home, you would create a file called home.js in the src/pages folder.",
