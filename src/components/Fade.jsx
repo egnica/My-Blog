@@ -6,17 +6,36 @@ const Fade = ({children, transfer}) => {
 	const [fade, setFade] = useState(transfer);
 	const [delay, setDelay] = useState(transfer);
 
-	const fadeFunction = (transfer) => {
-		setFade(transfer);
-		fade
-			? setTimeout(() => {
-					setDelay(transfer);
-			  }, 1000)
-			: setDelay(transfer);
-	};
+	// const fadeFunction = (transfer) => {
+	// 	setFade(transfer);
+	// 	fade
+	// 		? setTimeout(() => {
+	// 				setDelay(transfer);
+	// 		  }, 1000)
+	// 		: setDelay(transfer);
+	// };
+
+	// useEffect(() => {
+	// 	fadeFunction(transfer);
+	// }, [transfer]);
 
 	useEffect(() => {
+		let timeoutId;
+
+		const fadeFunction = (transfer) => {
+			setFade(transfer);
+			fade
+				? (timeoutId = setTimeout(() => {
+						setDelay(transfer);
+				  }, 1000))
+				: setDelay(transfer);
+		};
+
 		fadeFunction(transfer);
+
+		return () => {
+			clearTimeout(timeoutId);
+		};
 	}, [transfer]);
 
 	const renderStyle = () => {

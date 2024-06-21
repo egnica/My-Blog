@@ -88,7 +88,7 @@ export default function Home() {
 					</p>
 					<br />
 					<Fade transfer={reveal}>
-						<div style={{background: "black", padding: "10px"}}>
+						<div style={{background: "black", padding: "10px", width: "90%"}}>
 							<code style={{color: "white"}}>
 								<span
 									className={styles.x_out}
