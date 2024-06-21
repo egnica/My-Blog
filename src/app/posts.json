@@ -25,7 +25,7 @@
     "posts": [
         {
             "id": "001",
-            "query": "",
+            "query": "Hello-World",
             "title": "Hello World",
             "description": "Once you have done this, you can start creating pages in the src/pages folder. For example, to create a new page called home, you would create a file called home.js in the src/pages folder.",
             "date": "Jun 17 2024",
@@ -38,7 +38,7 @@
         },
         {
             "id": "002",
-            "query": "",
+            "query": "second-post",
             "title": "my second post",
             "description": "Once you have done this, you can start creating pages in the src/pages folder. For example, to create a new page called home, you would create a file called home.js in the src/pages folder.",
             "date": "Jun 12 2024",
@@ -51,7 +51,7 @@
         },
         {
             "id": "003",
-            "query": "",
+            "query": "third-post",
             "title": "Hello  my third post",
             "description": "Once you have done this, you can start creating pages in the src/pages folder. For example, to create a new page called home, you would create a file called home.js in the src/pages folder.",
             "date": "Jun 17 2024",

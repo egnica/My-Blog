@@ -167,7 +167,7 @@ export default function Home() {
 					<br />
 					<p>If you are interested in checking out more...</p>
 					<br />
-					<Link style={{textDecoration: "none"}} href={"/display_blog"}>
+					<Link style={{textDecoration: "none"}} href={"/display-blog"}>
 						<div className={styles.enterBtn}>CLICK HERE</div>
 					</Link>
 				</div>
