@@ -11,32 +11,32 @@ const Display = () => {
 			<h1>LATE START DEV</h1>
 			<div className={styles.latestCont}>
 				<div className={styles.latestImg}>
-					<Link
+					{/* <Link
 						href={{
 							pathname: "blog-post",
 							query: {article: lastP.query},
 						}}
-					>
-						<Image
-							src={lastP.article_image}
-							width={1200}
-							height={630}
-							alt={lastP.title}
-							priority
-							layout='responsive'
-						/>
-					</Link>
+					> */}
+					<Image
+						src={lastP.article_image}
+						width={1200}
+						height={630}
+						alt={lastP.title}
+						priority
+						layout='responsive'
+					/>
+					{/* </Link> */}
 				</div>
 				<div className={styles.latestContent}>
 					<>
-						<Link
+						{/* <Link
 							href={{
 								pathname: "blog-post",
 								query: {article: lastP.query},
 							}}
-						>
-							<h2>{lastP.title}</h2>
-						</Link>
+						> */}
+						<h2>{lastP.title}</h2>
+						{/* </Link> */}
 						<p>{lastP.description}</p>
 						<p className={styles.latestDate}>{lastP.date}</p>
 					</>
@@ -47,29 +47,22 @@ const Display = () => {
 				{Posts.posts.map((post) => {
 					return (
 						post.featured && (
-							<Link
-								href={{
-									pathname: "blog-post",
-									query: {article: post.query},
-								}}
-							>
-								<div key={post.id} className={styles.featureItem}>
-									<div>
-										<Image
-											src={post.article_image}
-											width={1200}
-											height={630}
-											alt={post.title}
-											priority={true}
-											layout='responsive'
-										/>
-									</div>
-									<div className={styles.featuredTitle}>
-										<h4>{post.title}</h4>
-										<p className={styles.latestDate}>{post.date}</p>
-									</div>
+							<div key={post.id} className={styles.featureItem}>
+								<div>
+									<Image
+										src={post.article_image}
+										width={1200}
+										height={630}
+										alt={post.title}
+										priority={true}
+										layout='responsive'
+									/>
 								</div>
-							</Link>
+								<div className={styles.featuredTitle}>
+									<h4>{post.title}</h4>
+									<p className={styles.latestDate}>{post.date}</p>
+								</div>
+							</div>
 						)
 					);
 				})}
