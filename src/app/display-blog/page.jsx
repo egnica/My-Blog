@@ -2,6 +2,7 @@ import styles from "./page.module.css";
 import Posts from "@/app/posts.json";
 import Image from "next/image";
 import Link from "next/link";
+import {PostContent} from "../blog-post/connect/postContent";
 
 const Display = () => {
 	const lastP = Posts.posts.slice(-1)[0];
