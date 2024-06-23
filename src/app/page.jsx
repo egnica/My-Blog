@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import {useEffect, useState} from "react";
 import Link from "next/link";
-import Fade from "@/components/Fade";
+import Fade from "../components/Fade";
 
 export default function Home() {
 	const [reveal, setReveal] = useState(false);
@@ -11,7 +11,6 @@ export default function Home() {
 	const [secondAgeReveal, setSecondAgeReveal] = useState(false);
 	const [response, setResponse] = useState("");
 	const [age, setAge] = useState(0);
-	const [color, setColor] = useState("#b6b6b6c0");
 
 	useEffect(() => {}, []);
 
