@@ -17,18 +17,15 @@ export default function Blog_Post() {
 	}, [searchParams]);
 
 	return (
-		<>
-			<Suspense fallback={<div>Loading...</div>}>
-				{post ? (
-					<>
-						<h1>{post.title}</h1>
-						<p>{post.content}</p>
-						{/* <p dangerouslySetInnerHTML={{__html: post.bio}} /> */}
-					</>
-				) : (
-					<p>No post found</p>
-				)}
-			</Suspense>
-		</>
+		<Suspense fallback={<div>Loading...</div>}>
+			{post ? (
+				<>
+					<h1>{post.title}</h1>
+					{/* <p dangerouslySetInnerHTML={{__html: post.bio}} /> */}
+				</>
+			) : (
+				<p>No post found</p>
+			)}
+		</Suspense>
 	);
 }
