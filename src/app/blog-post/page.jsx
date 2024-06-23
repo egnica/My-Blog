@@ -6,7 +6,7 @@ import {Suspense} from "react";
 export default function Blog_Post() {
 	const searchParams = useSearchParams();
 	const queryName = searchParams.get("article");
-
+	// Is this not working
 	const post = Posts.posts.filter((post) => post.query === queryName);
 
 	return (
