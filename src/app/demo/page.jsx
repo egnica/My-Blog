@@ -1,7 +1,7 @@
 "use client";
 import styles from "./page.module.css";
 import {useState} from "react";
-import Fade from "@/components/Fade";
+import Fade from "../../components/Fade";
 
 const Display = () => {
 	const [fade, setFade] = useState(false);
