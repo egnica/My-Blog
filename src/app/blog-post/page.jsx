@@ -1,18 +1,26 @@
 "use client";
 import {useSearchParams} from "next/navigation";
 import Posts from "../posts.json";
-import {Suspense} from "react";
+import {Suspense, useState} from "react";
 
 export default function Blog_Post() {
+	const [post, setPost] = useState({});
 	const searchParams = useSearchParams();
-	const queryName = searchParams.get("article");
-	// Is this not working
-	const post = Posts.posts.filter((post) => post.query === queryName);
+
+	useState(() => {
+		const queryName = searchParams.get("article");
+
+		Posts.posts.map((item) => {
+			queryName == item.query ? setPost(item) : null;
+		});
+	}, []);
+
+	// const post = Posts.posts.filter((post) => post.query === queryName);
 
 	return (
 		<>
-			<Suspense fallback={<div>Loading...</div>}>
-				<h1>{post[0].title}</h1>
+			<Suspense placeholder='Search...'>
+				<h1>{post.title}</h1>
 				<p>test test</p>
 				{/* <p dangerouslySetInnerHTML={{__html: person.bio}} /> */}
 			</Suspense>
