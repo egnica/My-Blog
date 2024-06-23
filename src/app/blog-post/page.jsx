@@ -1,6 +1,6 @@
 "use client";
 import {useSearchParams} from "next/navigation";
-import Posts from "@/app/posts.json";
+import Posts from "../posts.json";
 
 export default function Blog_Post() {
 	const searchParams = useSearchParams();

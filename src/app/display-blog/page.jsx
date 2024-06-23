@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import Posts from "@/app/posts.json";
+import Posts from "../posts.json";
 import Image from "next/image";
 import Link from "next/link";
 
