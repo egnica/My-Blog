@@ -2,8 +2,8 @@ import React from "react";
 import Posts from "../../posts.json";
 
 const BlogPost = (prams) => {
-	const title = prams.params.query;
-	const foundPost = Posts.posts.find((item) => item.query === title);
+	const queryString = prams.params.query;
+	const foundPost = Posts.posts.find((item) => item.query === queryString);
 	return (
 		<>
 			<h1>{foundPost.title}</h1>
