@@ -10,7 +10,7 @@ const BlogPost = (prams) => {
 	return (
 		<>
 			<h1>{foundPost.title}</h1>
-			<p>{foundPost.description}</p>
+			<p>{foundPost.body_1}</p>
 		</>
 	);
 };
