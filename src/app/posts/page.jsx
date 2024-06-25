@@ -11,11 +11,7 @@ const Display = () => {
 			<h1>LATE START DEV</h1>
 			<div className={styles.latestCont}>
 				<div className={styles.latestImg}>
-					<Link
-						href={{
-							pathname: `posts/${lastP.query}`,
-						}}
-					>
+					<Link href={`posts/${lastP.query}`}>
 						<Image
 							src={lastP.article_image}
 							width={1200}
@@ -28,11 +24,7 @@ const Display = () => {
 				</div>
 				<div className={styles.latestContent}>
 					<>
-						<Link
-							href={{
-								pathname: `posts/${lastP.query}`,
-							}}
-						>
+						<Link href={`posts/${lastP.query}`}>
 							<h2>{lastP.title}</h2>
 						</Link>
 						<p>{lastP.description}</p>
@@ -45,11 +37,7 @@ const Display = () => {
 				{Posts.posts.map((post) => {
 					return (
 						post.featured && (
-							<Link
-								href={{
-									pathname: `posts/${post.query}`,
-								}}
-							>
+							<Link href={`posts/${post.query}`}>
 								<div key={post.id} className={styles.featureItem}>
 									<div>
 										<Image
