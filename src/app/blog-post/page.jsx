@@ -2,6 +2,9 @@
 import {useSearchParams} from "next/navigation";
 import Posts from "../posts.json";
 import {Suspense, useEffect, useState} from "react";
+import Image from "next/image";
+import styles from "./page.module.css";
+import metaTransfer from "./metaTransfer.js";
 
 function BlogPostComponent() {
 	const [post, setPost] = useState(null);
@@ -14,15 +17,32 @@ function BlogPostComponent() {
 		if (foundPost) {
 			setPost(foundPost);
 		}
+		metaTransfer(post);
 	}, [searchParams]);
 
 	return post ? (
 		<>
 			<h1>{post.title}</h1>
+			<p>{post.date}</p>
+			<br />
+			<div className=''>
+				<Image
+					src={post.article_image}
+					alt={post.title}
+					width={560}
+					height={315}
+					sizes='(max-width: 900px) 100vw, 900px'
+					priority
+				/>
+			</div>
+
+			<br />
+			<p>{post.description}</p>
+
 			{/* <p dangerouslySetInnerHTML={{ __html: post.bio }} /> */}
 		</>
 	) : (
-		<p>No post found</p>
+		<p></p>
 	);
 }
 

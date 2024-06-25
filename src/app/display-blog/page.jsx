@@ -13,8 +13,7 @@ const Display = () => {
 				<div className={styles.latestImg}>
 					<Link
 						href={{
-							pathname: "blog-post",
-							query: {article: lastP.query},
+							pathname: `display-blog/${lastP.query}`,
 						}}
 					>
 						<Image
@@ -31,8 +30,7 @@ const Display = () => {
 					<>
 						<Link
 							href={{
-								pathname: "blog-post",
-								query: {article: lastP.query},
+								pathname: `display-blog/${lastP.query}`,
 							}}
 						>
 							<h2>{lastP.title}</h2>
@@ -49,8 +47,7 @@ const Display = () => {
 						post.featured && (
 							<Link
 								href={{
-									pathname: "blog-post",
-									query: {article: post.query},
+									pathname: `display-blog/${post.query}`,
 								}}
 							>
 								<div key={post.id} className={styles.featureItem}>
