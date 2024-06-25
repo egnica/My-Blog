@@ -2,7 +2,6 @@ import React from "react";
 import Posts from "../../posts.json";
 
 const BlogPost = (prams) => {
-	console.log(prams);
 	const title = prams.params.query;
 	const foundPost = Posts.posts.find((item) => item.query === title);
 	return (
