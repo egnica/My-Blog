@@ -7,7 +7,6 @@
             "description": "",
             "date": "",
             "article_image": "",
-            "meta_image": "",
             "keywords": "",
             "featured": "",
             "blog_url": "",
@@ -34,7 +33,14 @@
             "featured": true,
             "blog_url": "",
             "vibe_audio": "",
-            "body_1": "Creating a folder to hold the pages folder can be a good way to organize your application code, especially if you  have a large number of pages. It can also make it easier to share code between pages, as you can easily move pages and their associated components between folders."
+            "body_1": "Creating a folder to hold the pages folder can be a good way to organize your application code, especially if you  have a large number of pages. It can also make it easier to share code between pages, as you can easily move pages and their associated components between folders.",
+            "image_1": "",
+            "video_1": "",
+            "body_2": "",
+            "image_2": "",
+            "video_2": "",
+            "body_3": "",
+            "link": ""
         },
         {
             "id": "002",
@@ -47,7 +53,14 @@
             "featured": true,
             "blog_url": "",
             "vibe_audio": "",
-            "body_1": "Creating a folder to hold the pages folder can be a good way to organize your application code, especially if you have a large number of pages. It can also make it easier to share code between pages, as you can easily move pages and their associated components between folders."
+            "body_1": "Creating a folder to hold the pages folder can be a good way to organize your application code, especially if you have a large number of pages. It can also make it easier to share code between pages, as you can easily move pages and their associated components between folders.",
+            "image_1": "",
+            "video_1": "",
+            "body_2": "",
+            "image_2": "",
+            "video_2": "",
+            "body_3": "",
+            "link": ""
         },
         {
             "id": "003",
@@ -60,7 +73,14 @@
             "featured": true,
             "blog_url": "",
             "vibe_audio": "",
-            "body_1": "Creating a folder to hold the pages folder can be a good way to organize your application code, especially if you have a large number of pages. It can also make it easier to share code between pages, as you can easily move pages and their associated components between folders."
+            "body_1": "Creating a folder to hold the pages folder can be a good way to organize your application code, especially if you have a large number of pages. It can also make it easier to share code between pages, as you can easily move pages and their associated components between folders.",
+            "image_1": "",
+            "video_1": "",
+            "body_2": "",
+            "image_2": "",
+            "video_2": "",
+            "body_3": "",
+            "link": ""
         }
     ]
 }
