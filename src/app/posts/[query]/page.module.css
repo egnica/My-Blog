@@ -1,0 +1,15 @@
+.featuredImg {
+	display: grid;
+	place-content: center;
+	padding: 0 5%;
+	margin: 2%;
+}
+.featuredImg > * {
+}
+.content_container {
+	padding: 2% 8%;
+	background-color: #fffff4c4;
+	border-radius: 20px;
+}
+.content_container > * {
+}
