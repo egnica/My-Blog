@@ -39,6 +39,6 @@ p {
 
 @media (max-width: 480px) {
 	html {
-		padding: 5px;
+		padding: 1px;
 	}
 }

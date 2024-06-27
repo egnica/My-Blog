@@ -129,11 +129,12 @@
 	.picture_text_contain {
 		flex-direction: column;
 		min-width: 0;
-		padding: 20px 5px;
+		padding: 20px 1px;
 		border: none;
+		margin: 0;
 	}
 	.text_button_contain {
-		padding: 10px 20px;
+		padding: 10px;
 	}
 	.image_contain {
 		max-width: 200px;
