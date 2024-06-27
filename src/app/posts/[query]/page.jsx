@@ -80,7 +80,6 @@ const BlogPost = (params) => {
 					dangerouslySetInnerHTML={{__html: foundPost.body_3}}
 				></div>
 			)}
-			<Footer />
 		</>
 	);
 };

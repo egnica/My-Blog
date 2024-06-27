@@ -2,6 +2,7 @@ import {Inter} from "next/font/google";
 import {Roboto} from "next/font/google";
 import "./globals.css";
 import Google from "../components/google";
+import Footer from "../components/Footer";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -23,7 +24,9 @@ export default function RootLayout({children}) {
 			<html lang='en'>
 				<body className={roboto.className}>
 					<Google />
-					{children}
+					<div style={{padding: " 2% 5%"}}>{children}</div>
+
+					<Footer />
 				</body>
 			</html>
 		</>
