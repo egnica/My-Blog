@@ -1,6 +1,7 @@
 import {Inter} from "next/font/google";
 import {Roboto} from "next/font/google";
 import "./globals.css";
+import Google from "../components/google";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -18,8 +19,13 @@ export const metadata = {
 
 export default function RootLayout({children}) {
 	return (
-		<html lang='en'>
-			<body className={roboto.className}>{children}</body>
-		</html>
+		<>
+			<html lang='en'>
+				<body className={roboto.className}>
+					<Google />
+					{children}
+				</body>
+			</html>
+		</>
 	);
 }
