@@ -4,6 +4,9 @@
 	color: rgb(54, 54, 54);
 	text-decoration: none;
 }
+h1 {
+	font-size: 3.3em;
+}
 html {
 	padding: 30px;
 	background-color: #c1c2cf;

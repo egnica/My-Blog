@@ -22,17 +22,17 @@ const BlogPost = (params) => {
 					layout='responsive'
 				/>
 			</div>
+
 			<div>
 				<Vibe trans={foundPost.vibe_audio} />
 			</div>
 
-			<div className={styles.content_container}>
-				<p
-					dangerouslySetInnerHTML={{
-						__html: foundPost.body_1,
-					}}
-				></p>
-			</div>
+			<div
+				className={styles.content_container}
+				dangerouslySetInnerHTML={{
+					__html: foundPost.body_1,
+				}}
+			></div>
 			{foundPost.video_1 != "" && (
 				<div className={styles.video_container}>
 					<video controls>
@@ -54,9 +54,10 @@ const BlogPost = (params) => {
 			)}
 
 			{foundPost.body_2 != "" && (
-				<div className={styles.content_container}>
-					<p dangerouslySetInnerHTML={{__html: foundPost.body_2}}></p>
-				</div>
+				<div
+					className={styles.content_container}
+					dangerouslySetInnerHTML={{__html: foundPost.body_2}}
+				></div>
 			)}
 
 			{foundPost.video_2 != "" && (
@@ -80,9 +81,10 @@ const BlogPost = (params) => {
 			)}
 
 			{foundPost.body_3 != "" && (
-				<div className={styles.content_container}>
-					<p dangerouslySetInnerHTML={{__html: foundPost.body_3}}></p>
-				</div>
+				<div
+					className={styles.content_container}
+					dangerouslySetInnerHTML={{__html: foundPost.body_3}}
+				></div>
 			)}
 		</>
 	);

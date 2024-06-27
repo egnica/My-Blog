@@ -1,3 +1,4 @@
+import {url} from "inspector";
 import Posts from "../../posts.json";
 
 export async function generateMetadata(prams) {
@@ -6,6 +7,21 @@ export async function generateMetadata(prams) {
 
 	return {
 		title: foundPost.title,
+		description: foundPost.description,
+		keywords: foundPost.keywords,
+		openGraph: {
+			title: foundPost.title,
+			site_name: "Late Start Dev",
+			description: foundPost.description,
+			url: `https://latestartdev.com/posts/${foundPost.query}`,
+			images: [
+				{
+					url: foundPost.article_image,
+					width: 1200,
+					height: 630,
+				},
+			],
+		},
 	};
 }
 
