@@ -9,7 +9,7 @@
 .content_container {
 	padding: 2% 8%;
 	background-color: #fffff4c4;
-	border-radius: 20px;
+	border-radius: 10px;
 	font-size: 1.2em;
 }
 .content_container > * {
@@ -18,7 +18,7 @@
 
 .video_container {
 	padding: 2%;
-	border-radius: 20px;
+
 	display: grid;
 	place-content: center;
 }
@@ -36,4 +36,7 @@
 }
 
 @media (max-width: 480px) {
+	.content_container {
+		border-radius: 0px;
+	}
 }
