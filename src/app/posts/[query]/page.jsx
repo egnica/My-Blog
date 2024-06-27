@@ -3,6 +3,7 @@ import Image from "next/image";
 import Posts from "../../posts.json";
 import styles from "./page.module.css";
 import Vibe from "../../../components/VibeButton";
+import Footer from "../../../components/Footer";
 
 const BlogPost = (params) => {
 	const queryString = params.params.query;
@@ -22,11 +23,9 @@ const BlogPost = (params) => {
 					layout='responsive'
 				/>
 			</div>
-
 			<div>
 				<Vibe trans={foundPost.vibe_audio} />
 			</div>
-
 			<div
 				className={styles.content_container}
 				dangerouslySetInnerHTML={{
@@ -40,7 +39,6 @@ const BlogPost = (params) => {
 					</video>
 				</div>
 			)}
-
 			{foundPost.image_1 != "" && (
 				<div className={styles.image_container}>
 					<Image
@@ -52,14 +50,12 @@ const BlogPost = (params) => {
 					/>
 				</div>
 			)}
-
 			{foundPost.body_2 != "" && (
 				<div
 					className={styles.content_container}
 					dangerouslySetInnerHTML={{__html: foundPost.body_2}}
 				></div>
 			)}
-
 			{foundPost.video_2 != "" && (
 				<div className={styles.video_container}>
 					<video controls>
@@ -67,7 +63,6 @@ const BlogPost = (params) => {
 					</video>
 				</div>
 			)}
-
 			{foundPost.image_2 != "" && (
 				<div className={styles.image_container}>
 					<Image
@@ -79,13 +74,13 @@ const BlogPost = (params) => {
 					/>
 				</div>
 			)}
-
 			{foundPost.body_3 != "" && (
 				<div
 					className={styles.content_container}
 					dangerouslySetInnerHTML={{__html: foundPost.body_3}}
 				></div>
 			)}
+			<Footer />
 		</>
 	);
 };
