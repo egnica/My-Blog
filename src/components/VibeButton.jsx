@@ -7,8 +7,12 @@ const VibeButton = ({trans}) => {
 		<>
 			<div style={{display: "grid", placeContent: "center"}}>
 				<br />
-				<div className='button' onClick={() => setClick(!click)}>
-					Vibe Setter
+				<div
+					style={{padding: " 20px 40px"}}
+					className='button'
+					onClick={() => setClick(!click)}
+				>
+					Get The Vibe Right
 				</div>
 				<br />
 			</div>
