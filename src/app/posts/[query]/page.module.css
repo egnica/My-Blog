@@ -7,10 +7,16 @@
 	margin: auto;
 }
 .content_container {
-	padding: 2% 8%;
+	padding: 4% 8%;
 	background-color: #fffff4c4;
 	border-radius: 10px;
 	font-size: 1.2em;
+}
+.content_container a {
+	color: rgb(1, 1, 132);
+}
+.content_container a:hover {
+	color: rgb(142, 142, 245);
 }
 .content_container > * {
 	margin: auto;
@@ -18,7 +24,6 @@
 
 .video_container {
 	padding: 2%;
-
 	display: grid;
 	place-content: center;
 }
@@ -27,7 +32,6 @@
 }
 .image_container {
 	padding: 2%;
-
 	display: grid;
 	place-content: center;
 }
