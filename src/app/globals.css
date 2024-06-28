@@ -4,6 +4,12 @@
 	color: rgb(54, 54, 54);
 	text-decoration: none;
 }
+a {
+	-webkit-user-select: none; /* Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none;
+}
 h1 {
 	font-size: 3.3em;
 }
@@ -27,9 +33,12 @@ p {
 	transition: ease-in 0.2s;
 	cursor: pointer;
 	max-width: 200px;
-
 	background-color: #fee3e3e0;
 	color: rgba(0, 0, 0, 0.639);
+	-webkit-user-select: none; /* Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none;
 }
 .button:hover {
 	transform: scale(1.05);
