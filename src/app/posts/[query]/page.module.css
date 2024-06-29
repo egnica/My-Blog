@@ -11,9 +11,11 @@
 	background-color: #fffff4c4;
 	border-radius: 10px;
 	font-size: 1.2em;
+	line-height: 1.6;
 }
 .content_container a {
-	color: rgb(1, 1, 132);
+	color: rgb(34, 50, 228);
+	font-weight: bold;
 }
 .content_container a:hover {
 	color: rgb(142, 142, 245);
@@ -42,5 +44,6 @@
 @media (max-width: 480px) {
 	.content_container {
 		border-radius: 0px;
+		line-height: normal;
 	}
 }

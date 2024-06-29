@@ -1,9 +1,17 @@
 import Link from "next/link";
+import Header from "../../components/Header";
 export const metadata = {
 	title: "Article Section",
 	description: "Here are all of the article's within the blog blog",
 };
 
 export default function Layout({children}) {
-	return <div>{children}</div>;
+	return (
+		<>
+			<Link href='./'>
+				<Header />
+			</Link>
+			<div>{children}</div>;
+		</>
+	);
 }

@@ -67,7 +67,11 @@ export default function Home() {
 					<p>
 						Hello! My name is{" "}
 						<a
-							style={{textDecoration: "none", cursor: "pointer"}}
+							style={{
+								textDecoration: "none",
+								cursor: "pointer",
+								color: "#484ea1",
+							}}
 							href='https://www.linkedin.com/in/nicholas-egner/'
 							target='_blank'
 						>
@@ -82,9 +86,12 @@ export default function Home() {
 						<br />
 						<br />
 					</p>
-					<p onClick={() => setReveal(!reveal)} className={styles.reveal}>
-						Wanna see??
-					</p>
+					<div className={styles.wanna_see}>
+						<p onClick={() => setReveal(!reveal)} className={styles.reveal}>
+							Wanna see??
+						</p>
+					</div>
+
 					<br />
 					<Fade transfer={reveal}>
 						<div style={{background: "black", padding: "10px", width: "90%"}}>
@@ -138,9 +145,14 @@ export default function Home() {
 						starting over in a new career.
 					</p>
 					<br />
-					<p onClick={() => setAgeReveal(!ageReveal)} className={styles.reveal}>
-						How old am I you ask?
-					</p>
+					<div className={styles.wanna_see}>
+						<p
+							onClick={() => setAgeReveal(!ageReveal)}
+							className={styles.reveal}
+						>
+							How old am I you ask?
+						</p>
+					</div>
 					<Fade transfer={ageReveal} className={styles.age}>
 						<br />
 						<p>

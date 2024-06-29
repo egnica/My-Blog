@@ -39,8 +39,8 @@ const Footer = () => {
 					Amplify. Are you someone who wants to chat? I can tell you more about
 					it all, just hit me up!
 				</p>
-				<p>
-					<a href='mailto:nick@nicholasegner.com'>My Email Address</a>
+				<p className={styles.email}>
+					<a href='mailto:nick@nicholasegner.com'> nick@nicholasegner.com</a>
 				</p>
 				<p> &copy; Nicholas Egner {year}</p>
 			</div>

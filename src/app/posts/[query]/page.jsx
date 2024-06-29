@@ -12,9 +12,6 @@ const BlogPost = (params) => {
 
 	return (
 		<>
-			<Link href='/posts' className='button'>
-				Back to Posts
-			</Link>
 			<div style={{padding: "10px"}}></div>
 			<h1>{foundPost.title}</h1>
 			<p>{foundPost.date}</p>
