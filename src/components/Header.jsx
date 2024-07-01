@@ -5,7 +5,16 @@ import {useState, useEffect} from "react";
 
 const Header = () => {
 	const [buttonName, setButtonName] = useState("");
-	const backButton = ["Back", "Watch My", "Got My"];
+	const backButton = [
+		"Back",
+		"Watch My ___",
+		"Got My ___",
+		"___ to the Future",
+		"Get Off My ___",
+		"Don't Look ___",
+		"___ in Black",
+		" <----- ",
+	];
 
 	useEffect(() => {
 		const num = Math.floor(Math.random() * backButton.length);

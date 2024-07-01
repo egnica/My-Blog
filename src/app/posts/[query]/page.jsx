@@ -34,14 +34,14 @@ const BlogPost = (params) => {
 					__html: foundPost.body_1,
 				}}
 			></div>
-			{foundPost.video_1 != "" && (
+			{foundPost.video_1 != null && (
 				<div className={styles.video_container}>
 					<video controls>
 						<source src={foundPost.video_1} type='video/mp4' />
 					</video>
 				</div>
 			)}
-			{foundPost.image_1 != "" && (
+			{foundPost.image_1 != null && (
 				<div className={styles.image_container}>
 					<Image
 						src={foundPost.image_1}
@@ -52,20 +52,20 @@ const BlogPost = (params) => {
 					/>
 				</div>
 			)}
-			{foundPost.body_2 != "" && (
+			{foundPost.body_2 != null && (
 				<div
 					className={styles.content_container}
 					dangerouslySetInnerHTML={{__html: foundPost.body_2}}
 				></div>
 			)}
-			{foundPost.video_2 != "" && (
+			{foundPost.video_2 != null && (
 				<div className={styles.video_container}>
 					<video controls>
 						<source src={foundPost.video_2} type='video/mp4' />
 					</video>
 				</div>
 			)}
-			{foundPost.image_2 != "" && (
+			{foundPost.image_2 != null && (
 				<div className={styles.image_container}>
 					<Image
 						src={foundPost.image_2}
@@ -76,7 +76,7 @@ const BlogPost = (params) => {
 					/>
 				</div>
 			)}
-			{foundPost.body_3 != "" && (
+			{foundPost.body_3 != null && (
 				<div
 					className={styles.content_container}
 					dangerouslySetInnerHTML={{__html: foundPost.body_3}}
