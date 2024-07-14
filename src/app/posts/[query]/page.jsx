@@ -6,8 +6,8 @@ import Vibe from "../../../components/VibeButton";
 import Footer from "../../../components/Footer";
 import Link from "next/link";
 
-const BlogPost = (params) => {
-	const queryString = params.params.query;
+const BlogPost = ({params}) => {
+	const queryString = params.query;
 	const foundPost = Posts.posts.find((item) => item.query === queryString);
 
 	return (
