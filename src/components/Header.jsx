@@ -7,13 +7,14 @@ const Header = () => {
 	const [buttonName, setButtonName] = useState("");
 	const backButton = [
 		"Back",
-		"Watch My ___",
-		"Got My ___",
-		"___ to the Future",
-		"Get Off My ___",
-		"Don't Look ___",
-		"___ in Black",
 		" <----- ",
+		"Previous Page",
+		"Backward",
+		"Return",
+		"Backtrack",
+		"Revert",
+		"Back Up",
+		"Last Page",
 	];
 
 	useEffect(() => {

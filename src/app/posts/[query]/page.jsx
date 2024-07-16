@@ -36,7 +36,7 @@ const BlogPost = ({params}) => {
 			></div>
 			{foundPost.video_1 != null && (
 				<div className={styles.video_container}>
-					<video controls>
+					<video style={{width: "80%"}} controls>
 						<source src={foundPost.video_1} type='video/mp4' />
 					</video>
 				</div>
@@ -80,6 +80,19 @@ const BlogPost = ({params}) => {
 				<div
 					className={styles.content_container}
 					dangerouslySetInnerHTML={{__html: foundPost.body_3}}
+				></div>
+			)}
+			{foundPost.video_4 != null && (
+				<div className={styles.video_container}>
+					<video style={{width: "80%"}} controls>
+						<source src={foundPost.video_4} type='video/mp4' />
+					</video>
+				</div>
+			)}
+			{foundPost.body_4 != null && (
+				<div
+					className={styles.content_container}
+					dangerouslySetInnerHTML={{__html: foundPost.body_4}}
 				></div>
 			)}
 		</>
