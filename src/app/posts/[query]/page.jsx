@@ -1,3 +1,4 @@
+
 import React from "react";
 import Image from "next/image";
 import Posts from "../../posts.json";
@@ -5,6 +6,7 @@ import styles from "./page.module.css";
 import Vibe from "../../../components/VibeButton";
 import Footer from "../../../components/Footer";
 import Link from "next/link";
+
 
 const BlogPost = ({params}) => {
 	const queryString = params.query;
@@ -33,7 +35,10 @@ const BlogPost = ({params}) => {
 				dangerouslySetInnerHTML={{
 					__html: foundPost.body_1,
 				}}
-			></div>
+			>
+			</div>
+			
+
 			{foundPost.video_1 != null && (
 				<div className={styles.video_container}>
 					<video style={{width: "80%"}} controls>
@@ -82,6 +87,7 @@ const BlogPost = ({params}) => {
 					dangerouslySetInnerHTML={{__html: foundPost.body_3}}
 				></div>
 			)}
+			
 			{foundPost.video_4 != null && (
 				<div className={styles.video_container}>
 					<video style={{width: "80%"}} controls>
@@ -95,6 +101,7 @@ const BlogPost = ({params}) => {
 					dangerouslySetInnerHTML={{__html: foundPost.body_4}}
 				></div>
 			)}
+			
 		</>
 	);
 };

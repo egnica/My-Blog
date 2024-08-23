@@ -11,7 +11,7 @@ export default function Layout({children}) {
 			<Link href='./'>
 				<Header />
 			</Link>
-			<div>{children}</div>;
+			<>{children}</>;
 		</>
 	);
 }

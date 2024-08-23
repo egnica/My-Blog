@@ -47,5 +47,5 @@ export async function generateMetadata(prams) {
 }
 
 export default function Layout({children}) {
-	return <div>{children}</div>;
+	return <>{children}</>;
 }
