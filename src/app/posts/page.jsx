@@ -8,7 +8,7 @@ const Display = () => {
 
   return (
     <>
-      <h1>LATE START DEV</h1>
+      <h1 className={styles.main_h1}>LATE START DEV</h1>
       <div className={styles.divide}>
         <div>
           <div className={styles.latestCont}>

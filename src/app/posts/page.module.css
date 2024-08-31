@@ -1,3 +1,6 @@
+.main_h1 {
+}
+
 /* LATEST POST */
 .btn {
   display: grid;
@@ -35,6 +38,8 @@
   grid-template-columns: 60% 40%;
   background-color: #f5f3f3;
   border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 .latestImg {
   margin: auto;
@@ -59,6 +64,8 @@
 }
 
 .featureItem {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   display: grid;
   grid-template-columns: 50% auto;
   margin: 5px;
@@ -88,12 +95,14 @@
   padding: 10px;
   border-radius: 20px;
   margin-left: 5%;
-  background-color: #f5f3f3;
+  background-color: #f5f3f378;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-template-rows: auto;
   gap: 10px;
   width: 110%;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 .all_posts h3 {
   text-align: center;
@@ -101,12 +110,14 @@
 .post_item {
   padding: 5%;
   margin: 5% 2%;
+  background-color: #f5f3f3;
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 .post_item:hover {
   transform: scale(1.05);
   box-shadow: 5px 5px 10px grey;
-  border-radius: 20px;
 }
 .post_item:active {
   box-shadow: inset 6px 6px 12px #bebebe, inset -6px -6px 12px #ffffff;
