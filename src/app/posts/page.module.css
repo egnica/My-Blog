@@ -41,6 +41,9 @@
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
+.latestCont:active {
+  box-shadow: inset 6px 6px 12px #bebebe, inset -6px -6px 12px #ffffff;
+}
 .latestImg {
   margin: auto;
 }
@@ -146,7 +149,7 @@
     display: grid;
     margin: auto;
     grid-template-columns: auto;
-    padding: 0;
+    padding: 1%;
     text-align: center;
     width: 80%;
   }
