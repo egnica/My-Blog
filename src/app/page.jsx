@@ -51,6 +51,7 @@ export default function Home() {
 
   return (
     <>
+      <h1 style={{ textAlign: "center", padding: "10px 0" }}>LATE START DEV</h1>
       <div className={styles.picture_text_contain}>
         <Image
           className={styles.image_contain}
@@ -62,23 +63,14 @@ export default function Home() {
           src="https://latestartbucket.s3.us-east-2.amazonaws.com/nick-pic.png"
         />
         <div className={styles.text_button_contain}>
-          <h2>Welcome to my blog</h2>
           <br />
-          <p>
-            Hello! My name is{" "}
-            <a
-              style={{
-                textDecoration: "none",
-                cursor: "pointer",
-                color: "#484ea1",
-              }}
-              href="https://www.nicholasegner.com/"
-              target="_blank"
-            >
-              Nicholas Egner.
+          <p>Hello! My name is:</p>
+          <div className={styles.name_cont}>
+            <a href="https://www.nicholasegner.com/" target="_blank">
+              <h1 className={styles.anchor}> Nicholas Egner</h1>
             </a>
-          </p>
-          <br />
+          </div>
+
           <p>
             I have been earning a paycheck as a web developer for {timeAsDev()}.
             I even created an overly complicated function to make that last line

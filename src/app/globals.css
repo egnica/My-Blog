@@ -1,57 +1,57 @@
 * {
-	padding: 0;
-	margin: 0;
-	color: rgb(54, 54, 54);
-	text-decoration: none;
+  padding: 0;
+  margin: 0;
+  color: rgb(54, 54, 54);
+  text-decoration: none;
 }
 a {
-	-webkit-user-select: none; /* Safari */
-	-moz-user-select: none; /* Firefox */
-	-ms-user-select: none; /* Internet Explorer/Edge */
-	user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  text-decoration: none;
+  cursor: "pointer";
 }
 h1 {
-	font-size: 3.3em;
+  font-size: 3.3em;
 }
 html {
-	background-color: #c1c2cf;
-	background-image: url(https://supergeekery.com/static/grid_pattern_1x.webp);
+  background-color: #c1c2cf;
+  background-image: url(https://supergeekery.com/static/grid_pattern_1x.webp);
 }
 p {
-	font-size: 20px;
+  font-size: 20px;
 }
 
 .button {
-	place-content: center;
-	padding: 5px;
-	border: 2px solid rgba(43, 43, 43, 0.363);
-	border-radius: 10px;
-	margin: 5px;
-	color: #5f5f5f;
-	font-size: large;
-	font-weight: 800;
-	transition: ease-in 0.2s;
-	cursor: pointer;
-	max-width: 200px;
-	background-color: #fee3e3e0;
-	color: rgba(0, 0, 0, 0.639);
-	-webkit-user-select: none; /* Safari */
-	-moz-user-select: none; /* Firefox */
-	-ms-user-select: none; /* Internet Explorer/Edge */
-	user-select: none;
+  place-content: center;
+  padding: 5px;
+  border: 2px solid rgba(43, 43, 43, 0.363);
+  border-radius: 10px;
+  margin: 5px;
+  color: #5f5f5f;
+  font-size: large;
+  font-weight: 800;
+  transition: ease-in 0.2s;
+  cursor: pointer;
+  max-width: 200px;
+  background-color: #fee3e3e0;
+  color: rgba(0, 0, 0, 0.639);
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
 }
 .button:hover {
-	transform: scale(1.05);
-	box-shadow: 5px 5px 10px grey;
-	background-color: #fee3e376;
+  transform: scale(1.05);
+  box-shadow: 5px 5px 10px grey;
+  background-color: #fee3e376;
 }
-code{
-	
-
+code {
 }
 
 @media (max-width: 480px) {
-	html {
-		padding: 1px;
-	}
+  html {
+    padding: 1px;
+  }
 }
