@@ -83,6 +83,17 @@ const BlogPost = ({ params }) => {
           dangerouslySetInnerHTML={{ __html: foundPost.body_3 }}
         ></div>
       )}
+      {foundPost.image_3 != null && (
+        <div className={styles.image_container}>
+          <Image
+            src={foundPost.image_3}
+            width={869}
+            height={400}
+            alt={foundPost.title}
+            layout="responsive"
+          />
+        </div>
+      )}
 
       {foundPost.video_4 != null && (
         <div className={styles.video_container}>
