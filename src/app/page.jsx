@@ -16,6 +16,8 @@ export default function Home() {
 
   // document.documentElement.style.backgroundColor = color;
 
+  // you chuck
+
   const timeAsDev = () => {
     const date = new Date();
 
