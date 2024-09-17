@@ -65,18 +65,21 @@ const Display = () => {
         </div>
         <aside className={styles.all_posts}>
           <h3>All posts</h3>
-          {Posts.posts.map((item) => {
-            return (
-              <Link key={item.id} href={`posts/${item.query}`}>
-                <div className={styles.post_item}>
-                  <p>{item.title}</p>
-                  <em>
-                    <p style={{ fontSize: "0.7em" }}>{item.date}</p>
-                  </em>
-                </div>
-              </Link>
-            );
-          })}
+          {[...Posts.posts]
+            .reverse()
+            .slice(0, 6)
+            .map((item) => {
+              return (
+                <Link key={item.id} href={`posts/${item.query}`}>
+                  <div className={styles.post_item}>
+                    <p>{item.title}</p>
+                    <em>
+                      <p style={{ fontSize: "0.7em" }}>{item.date}</p>
+                    </em>
+                  </div>
+                </Link>
+              );
+            })}
           <div className={styles.btn}>MORE</div>
         </aside>
       </div>
