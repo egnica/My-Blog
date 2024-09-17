@@ -40,8 +40,8 @@ const Display = () => {
             {Posts.posts.map((post) => {
               return (
                 post.featured && (
-                  <Link href={`posts/${post.query}`}>
-                    <div key={post.id} className={styles.featureItem}>
+                  <Link key={post.id} href={`posts/${post.query}`}>
+                    <div className={styles.featureItem}>
                       <div className={styles.feature_image}>
                         <Image
                           src={post.article_image}
