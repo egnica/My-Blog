@@ -16,6 +16,11 @@ const BlogPost = ({ params }) => {
   const queryString = params.query;
   const foundPost = Posts.posts.find((item) => item.query === queryString);
 
+  useEffect(() => {
+    // Highlight all code blocks dynamically after each render
+    Prism.highlightAll();
+  }, [params]); // Runs every time `content` changes
+
   marked.setOptions({
     langPrefix: "language-", // Add 'language-' prefix to code block classes
     highlight: (code, lang) => {
