@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Posts from "../../posts.json";
@@ -5,11 +6,25 @@ import styles from "./page.module.css";
 import Vibe from "../../../components/VibeButton";
 import Footer from "../../../components/Footer";
 import Link from "next/link";
+import { marked } from "marked";
+import Prism from "prismjs";
+import "prismjs/themes/prism.css";
+import "prismjs/components/prism-javascript";
+import { useEffect } from "react";
 
 const BlogPost = ({ params }) => {
   const queryString = params.query;
   const foundPost = Posts.posts.find((item) => item.query === queryString);
 
+  marked.setOptions({
+    langPrefix: "language-", // Add 'language-' prefix to code block classes
+    highlight: (code, lang) => {
+      if (Prism.languages[lang]) {
+        return Prism.highlight(code, Prism.languages[lang], lang);
+      }
+      return code; // If no language is specified, return unhighlighted code
+    },
+  });
   return (
     <>
       <div style={{ padding: "10px" }}></div>
@@ -31,9 +46,7 @@ const BlogPost = ({ params }) => {
       <div className={styles.full_cont}>
         <div
           className={styles.content_container}
-          dangerouslySetInnerHTML={{
-            __html: foundPost.body_1,
-          }}
+          dangerouslySetInnerHTML={{ __html: marked(foundPost.body_1) }}
         ></div>
 
         {foundPost.video_1 != null && (
@@ -56,7 +69,7 @@ const BlogPost = ({ params }) => {
         {foundPost.body_2 != null && (
           <div
             className={styles.content_container}
-            dangerouslySetInnerHTML={{ __html: foundPost.body_2 }}
+            dangerouslySetInnerHTML={{ __html: marked(foundPost.body_2) }}
           ></div>
         )}
         {foundPost.video_2 != null && (
@@ -79,7 +92,7 @@ const BlogPost = ({ params }) => {
         {foundPost.body_3 != null && (
           <div
             className={styles.content_container}
-            dangerouslySetInnerHTML={{ __html: foundPost.body_3 }}
+            dangerouslySetInnerHTML={{ __html: marked(foundPost.body_3) }}
           ></div>
         )}
         {foundPost.image_3 != null && (
@@ -103,7 +116,7 @@ const BlogPost = ({ params }) => {
         {foundPost.body_4 != null && (
           <div
             className={styles.content_container}
-            dangerouslySetInnerHTML={{ __html: foundPost.body_4 }}
+            dangerouslySetInnerHTML={{ __html: marked(foundPost.body_4) }}
           ></div>
         )}
       </div>

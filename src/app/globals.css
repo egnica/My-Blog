@@ -47,8 +47,6 @@ p {
   box-shadow: 5px 5px 10px grey;
   background-color: #fee3e376;
 }
-code {
-}
 
 @media (max-width: 480px) {
   html {

@@ -27,3 +27,6 @@
 
 <a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope">scope</a>
 </html>
+
+
+<pre class='language-js'><code class='language-js'>function outerFunction(outerVariable) {\n return function innerFunction(innerVariable) {\n console.log(`Outer Variable: ${outerVariable}`);\n console.log(`Inner Variable: $ \n {innerVariable}`); \n }; \n } \n \n const closureFunc = outerFunction("outside"); \n closureFunc("inside");</code></pre>
