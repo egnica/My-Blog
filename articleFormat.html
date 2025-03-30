@@ -30,3 +30,67 @@
 
 
 <pre class='language-js'><code class='language-js'>function outerFunction(outerVariable) {\n return function innerFunction(innerVariable) {\n console.log(`Outer Variable: ${outerVariable}`);\n console.log(`Inner Variable: $ \n {innerVariable}`); \n }; \n } \n \n const closureFunc = outerFunction("outside"); \n closureFunc("inside");</code></pre>
+
+
+I was working on a project that required me to cycle through an array of words and display them one at at time. Sounds simple.</br></br>The goal was clear, show one word, wait a few seconds, show the next, and loop it <a href=’https://www.youtube.com/watch?v=EsMdABK3SKU#t=1m43s’ target=’_blank’> forever</a></br></br>My instinct… A LOOP! That has always been my go-to when iterating over an array.</br></br>But this time, something wasn’t clicking. I’ve never been super confident with JavaScript’s timing functions like setTimeout or setInterval, but I knew this is where I need to be for this timing function to work. </br></br>As I dug deeper, I realized the tools I thought I needed weren’t the ones I actually needed, Enter: the <a href='https://www.w3schools.com/js/js_callback.asp' target=’_blank’>callback function</a>, the <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder' target=’_blank’> modulo operator</a>, and the time-sensitive, often misunderstood <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder' target=’_blank’> setInterval</a>.</br></br>Together, they not only solved my problem, they reshaped the way I think about timed logic in React.</br></br><h2>My First Attempt: forEach + setTimeout</h2></br></br>My first instinct was to use a forEach loop. I thought, 'I'll just loop through the words and use setTimeout to delay each one.'<br></br><h3>WRONG:</h3>
+
+<a href=’https://www.youtube.com/watch?v=EsMdABK3SKU#t=1m43s’ target=’_blank’>FOREVER</a>
+
+<a href='https://www.youtube.com/watch?v=EsMdABK3SKU#t=1m43s' target=’_blank’>FOREVER</a>
+
+In theory, I thought this should have worked:<br/><pre class='language-js'><code class='language-js'>const words = ["Innovate", "Elevate", "Create"]; {\n return function innerFunction(innerVariable) {\n console.log(`Outer Variable: ${outerVariable}`);\n console.log(`Inner Variable: $ \n {innerVariable}`); \n }; \n } \n \n const closureFunc = outerFunction("outside"); \n closureFunc("inside");</code></pre>
+<ul><li>Innovate after 0 seconds</li><li></li><li></li></ul>
+
+The problems with this is it runs once on page load, no cycle, no repetition. It doesn’t update React state, so there’s no re-render.	Once the timeouts finish, it’s done, you’d have to manually restart the whole process. What I really wanted was a loop that never ends, a word that updates in state so React re-renders the DOM, and a solution that wouldn’t create dozens of rogue setTimeouts stacking up. It gets messy... That’s when I realized,  React needs a more reactive approach. You see what I did there?</br></br>
+<h3>setInterval: What I Actually Needed</h3></br></br>After realizing that forEach and setTimeout weren’t going to cut it, I turned to setInterval. I knew it ran a block of code every X milliseconds, but I had never really used it confidently — especially inside a React component.</br></br>Here’s what a basic version looks like:</br><pre class='language-js'><code class='language-js'>setInterval(() => { \n console.log("This runs every 2 seconds");\n}, 2000);</code></pre>
+
+
+const [index, setIndex] = useState(0);
+
+
+  
+    
+ 
+
+  
+
+<pre class='language-js'><code class='language-js'>const [index, setIndex] = useState(0); \n useEffect(() => { \n const interval = setInterval(() => { \n setIndex((prevIndex) => prevIndex + 1); \n  }, 2000); \n return () => clearInterval(interval); // cleanup \n }, []);</code></pre>
+
+<h2></h2>But there was still a problem, what happens when the index reaches the end of the array? That’s where the modulo operator walked in and stated, 'I'll take it from here, you yellow belly...'
+
+This line does two things at once. Increments the index by 1 and Resets it to 0 if it reaches the end of the array. It’s a simple piece of math, but it keeps the app from crashing and creates a perfect loop.
+
+
+<h2>The Final Working Solution</h2></br>Here’s the final version of the component that cycles through words cleanly, using setInterval, a state callback, and the % operator:
+
+
+
+
+
+
+
+  
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  return (
+    <div>
+      <p>{words[index]}</p>
+    </div>
+  );
+}
+
+
+
+<pre class='language-js'><code class='language-js'>import { useState, useEffect } from 'react'; \n export default function WordCycle() { \n const words = ['Innovate', 'Elevate', 'Create', 'Accelerate']; \n const [index, setIndex] = useState(0); \n useEffect(() => { \n const interval = setInterval(() => { \n setIndex((prevIndex) => (prevIndex + 1) % words.length); \n }, 2000); \n return () => clearInterval(interval); // Cleanup on unmount \n }, []);</code></pre>
+
+<h2>Final Thoughts</h2> </br> This was one of those moments where I felt like I had to unlearn what I thought I knew. I wanted to reach for my trusty loop, because I always think of loops when working with arrays. But in React, loops aren’t always the answer, especially when you’re dealing with time. The real solution came from combining a callback function that safely updates state, the modulo operator to create a loop, and a setInterval to drive the timing. So the moral of the story is if an array walks into a bar, don't automatically pull a loop on em. 
+
+But there was still a problem… What happens when the index reaches the end of the array?</br>That’s when the modulo operator strolled in, tipped its hat, and said:'I’ll take it from here, you yellow-belly…'
