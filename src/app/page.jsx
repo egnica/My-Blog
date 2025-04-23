@@ -16,8 +16,6 @@ export default function Home() {
 
   // document.documentElement.style.backgroundColor = color;
 
-
-
   const timeAsDev = () => {
     const date = new Date();
 
@@ -32,7 +30,7 @@ export default function Home() {
     const startYear = 2020;
 
     month < startMonth
-      ? (diffYear = year - startYear - 1) && (diffMonth = month + 9)
+      ? (diffYear = year - startYear - 1) && (diffMonth = month + 8)
       : (diffYear = year - startYear) && (diffMonth = month - startMonth + 1);
 
     diffMonth == 1 ? (monthString = "month") : (monthString = "months");
