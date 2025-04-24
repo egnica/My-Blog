@@ -77,7 +77,7 @@ const Display = () => {
                   height={630}
                   alt={lastP.title}
                   priority
-                  layout="responsive"
+                  style={{ width: "100%", height: "auto" }}
                 />
               </div>
               <div className={styles.latestContent}>
@@ -117,8 +117,7 @@ const Display = () => {
                           width={1200}
                           height={630}
                           alt={post.title}
-                          priority={true}
-                          layout="responsive"
+                          style={{ width: "100%", height: "auto" }}
                         />
                       </div>
                       <div className={styles.featuredTitle}>

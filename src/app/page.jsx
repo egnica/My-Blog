@@ -58,8 +58,8 @@ export default function Home() {
           width={1825}
           height={2499}
           alt="Picture of Nicholas Egner"
-          layout="responsive"
-          priority={true}
+          style={{ width: "100%", height: "auto" }}
+          priority
           src="https://latestartbucket.s3.us-east-2.amazonaws.com/nick-pic.png"
         />
         <div className={styles.text_button_contain}>
