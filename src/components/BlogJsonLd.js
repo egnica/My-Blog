@@ -8,6 +8,7 @@ export default function BlogJsonLd({ post }) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
+    keywords: post.keywords.join(", "),
     author: {
       "@type": "Person",
       name: "Nicholas Egner",
