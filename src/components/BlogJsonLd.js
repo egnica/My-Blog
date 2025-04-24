@@ -11,13 +11,22 @@ export default function BlogJsonLd({ post }) {
     author: {
       "@type": "Person",
       name: "Nicholas Egner",
+      url: "https://nicholasegner.com",
+      image:
+        "https://latestartbucket.s3.us-east-2.amazonaws.com/image/nicholas-egner.jpg",
+      sameAs: [
+        "https://www.linkedin.com/in/nicholasegner",
+        "https://github.com/egnica",
+        "https://twitter.com/NicholasEgner",
+        "https://nicholasegner.com",
+      ],
     },
     publisher: {
       "@type": "Organization",
       name: "Late Start Dev",
       logo: {
         "@type": "ImageObject",
-        url: "https://latestartbucket.s3.us-east-2.amazonaws.com/image/your-logo.png", // update if needed
+        url: "https://nciholasegner.s3.us-east-2.amazonaws.com/images/NE-blue.svg",
       },
     },
     datePublished: post.published_time || "2025-01-01",
