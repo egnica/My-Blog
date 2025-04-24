@@ -11,9 +11,9 @@ const Display = () => {
       <h1 className={styles.main_h1}>LATE START DEV</h1>
       <div className={styles.divide}>
         <div>
-          <div className={styles.latestCont}>
-            <div className={styles.latestImg}>
-              <Link href={`posts/${lastP.query}`}>
+          <Link href={`posts/${lastP.query}`}>
+            <div className={styles.latestCont}>
+              <div className={styles.latestImg}>
                 <Image
                   src={lastP.article_image}
                   width={1200}
@@ -22,19 +22,17 @@ const Display = () => {
                   priority
                   layout="responsive"
                 />
-              </Link>
-            </div>
-            <div className={styles.latestContent}>
-              <>
-                <Link href={`posts/${lastP.query}`}>
+              </div>{" "}
+              <div className={styles.latestContent}>
+                <>
                   <h2>{lastP.title}</h2>
-                </Link>
-                <p>{lastP.description}</p>
-                <p className={styles.latestDate}>{lastP.date}</p>
-              </>
-            </div>
-          </div>
 
+                  <p>{lastP.description}</p>
+                  <p className={styles.latestDate}>{lastP.date}</p>
+                </>
+              </div>
+            </div>
+          </Link>
           <h2 style={{ paddingTop: "10px" }}>Featured Articles</h2>
           <div className={styles.featuredContain}>
             {Posts.posts.map((post) => {
