@@ -15,7 +15,7 @@ export default function BlogJsonLd({ post }) {
       image:
         "https://latestartbucket.s3.us-east-2.amazonaws.com/image/nicholas-egner.jpg",
       sameAs: [
-        "https://www.linkedin.com/in/nicholasegner",
+        "https://www.linkedin.com/in/nicholas-egner",
         "https://github.com/egnica",
         "https://twitter.com/NicholasEgner",
         "https://nicholasegner.com",
