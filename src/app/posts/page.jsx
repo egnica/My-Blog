@@ -60,12 +60,29 @@ const Display = () => {
               );
             })}
           </div>
+
+          <div style={{ display: "grid" }}>
+            <div style={{ padding: "10px" }}></div>
+            <Link href="./posts/archive">
+              <div
+                style={{
+                  margin: "auto",
+                  maxWidth: "300px",
+                  textAlign: "center",
+                }}
+                className={styles.btn}
+              >
+                View All Posts
+              </div>
+            </Link>
+            <div style={{ padding: "10px" }}></div>
+          </div>
         </div>
         <aside className={styles.all_posts}>
-          <h3>All posts</h3>
+          <h3>Posts</h3>
           {[...Posts.posts]
             .reverse()
-            .slice(0, 6)
+            .slice(0, 5)
             .map((item) => {
               return (
                 <Link key={item.id} href={`posts/${item.query}`}>
@@ -78,7 +95,9 @@ const Display = () => {
                 </Link>
               );
             })}
-          <div className={styles.btn}>MORE</div>
+          <Link href="./posts/archive">
+            <div className={styles.btn}>MORE</div>
+          </Link>
         </aside>
       </div>
     </>
