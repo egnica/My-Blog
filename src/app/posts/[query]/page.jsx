@@ -10,22 +10,31 @@ import { marked } from "marked";
 import Prism from "prismjs";
 import "prismjs/themes/prism.css";
 import "prismjs/components/prism-javascript";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import BlogJsonLd from "../../../components/BlogJsonLd";
 
 marked.setOptions({
-  langPrefix: "language-", // Add 'language-' prefix to code block classes
-  highlight: (code, lang) => {
-    if (Prism.languages[lang]) {
-      return Prism.highlight(code, Prism.languages[lang], lang);
-    }
-    return code; // If no language is specified, return unhighlighted code
+  highlight: function (code, lang) {
+    const language = Prism.languages[lang] || Prism.languages.javascript;
+    return Prism.highlight(code, language, lang);
   },
+  langPrefix: "language-", // required for Prism CSS to apply
 });
 
 const Page = ({ params }) => {
   const queryString = params.query;
   const foundPost = Posts.posts.find((item) => item.query === queryString);
+
+  const videoRef1 = useRef(null);
+  const videoRef2 = useRef(null);
+  const videoRef4 = useRef(null);
+
+  const handleEnded = (ref) => {
+    if (ref.current) {
+      ref.current.currentTime = 0;
+      ref.current.pause = true;
+    }
+  };
 
   useEffect(() => {
     Prism.highlightAll();
@@ -62,7 +71,14 @@ const Page = ({ params }) => {
 
         {foundPost.video_1 != null && (
           <div className={styles.video_container}>
-            <video style={{ width: "80%" }} controls>
+            <video
+              ref={videoRef1}
+              style={{ width: "80%" }}
+              controls
+              onEnded={() => handleEnded(videoRef1)}
+              playsInline
+              preload="metadata"
+            >
               <source src={foundPost.video_1} type="video/mp4" />
             </video>
           </div>
@@ -85,7 +101,14 @@ const Page = ({ params }) => {
         )}
         {foundPost.video_2 != null && (
           <div className={styles.video_container}>
-            <video style={{ width: "80%" }} controls>
+            <video
+              ref={videoRef2}
+              style={{ width: "80%" }}
+              controls
+              onEnded={() => handleEnded(videoRef2)}
+              playsInline
+              preload="metadata"
+            >
               <source src={foundPost.video_2} type="video/mp4" />
             </video>
           </div>
@@ -119,7 +142,14 @@ const Page = ({ params }) => {
 
         {foundPost.video_4 != null && (
           <div className={styles.video_container}>
-            <video style={{ width: "80%" }} controls>
+            <video
+              ref={videoRef4}
+              style={{ width: "80%" }}
+              controls
+              onEnded={() => handleEnded(videoRef4)}
+              playsInline
+              preload="metadata"
+            >
               <source src={foundPost.video_4} type="video/mp4" />
             </video>
           </div>
