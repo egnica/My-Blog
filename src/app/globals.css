@@ -19,9 +19,6 @@ html {
   background-color: #c1c2cf;
   background-image: url(https://supergeekery.com/static/grid_pattern_1x.webp);
 }
-p {
-  font-size: 20px;
-}
 
 .button {
   place-content: center;

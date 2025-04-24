@@ -11,27 +11,33 @@ import Prism from "prismjs";
 import "prismjs/themes/prism.css";
 import "prismjs/components/prism-javascript";
 import { useEffect } from "react";
+import BlogJsonLd from "../../../components/BlogJsonLd";
 
-const BlogPost = ({ params }) => {
+marked.setOptions({
+  langPrefix: "language-", // Add 'language-' prefix to code block classes
+  highlight: (code, lang) => {
+    if (Prism.languages[lang]) {
+      return Prism.highlight(code, Prism.languages[lang], lang);
+    }
+    return code; // If no language is specified, return unhighlighted code
+  },
+});
+
+const Page = ({ params }) => {
   const queryString = params.query;
   const foundPost = Posts.posts.find((item) => item.query === queryString);
 
   useEffect(() => {
-    // Highlight all code blocks dynamically after each render
     Prism.highlightAll();
-  }, [params]); // Runs every time `content` changes
+  }, []);
 
-  marked.setOptions({
-    langPrefix: "language-", // Add 'language-' prefix to code block classes
-    highlight: (code, lang) => {
-      if (Prism.languages[lang]) {
-        return Prism.highlight(code, Prism.languages[lang], lang);
-      }
-      return code; // If no language is specified, return unhighlighted code
-    },
-  });
+  if (!foundPost) {
+    return <div>Post not found.</div>;
+  }
+
   return (
     <>
+      <BlogJsonLd post={foundPost} />
       <div style={{ padding: "10px" }}></div>
       <h1>{foundPost.title}</h1>
       <p>{foundPost.date}</p>
@@ -79,7 +85,7 @@ const BlogPost = ({ params }) => {
         )}
         {foundPost.video_2 != null && (
           <div className={styles.video_container}>
-            <video controls>
+            <video style={{ width: "80%" }} controls>
               <source src={foundPost.video_2} type="video/mp4" />
             </video>
           </div>
@@ -129,4 +135,4 @@ const BlogPost = ({ params }) => {
   );
 };
 
-export default BlogPost;
+export default Page;
