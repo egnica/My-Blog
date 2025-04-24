@@ -169,14 +169,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  background-color: #f5f3f3;
+  background-color: #f5f3f3a6;
   padding: 20px;
   border-radius: 15px;
 }
 .articleRow {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
-  background-color: #bebebe60;
+  background-color: #bebebecd;
+  border: 2px #ffffff solid;
   padding: 10px;
   border-radius: 10px;
   transition: ease-in 0.2s;
