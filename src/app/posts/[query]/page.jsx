@@ -52,9 +52,10 @@ const Page = ({ params }) => {
         <Image
           className={styles.img}
           src={foundPost.article_image}
-          fill
           alt={foundPost.title}
-          priority={true}
+          width={800}
+          height={420}
+          priority
           sizes="(max-width: 768px) 90vw, 800px"
         />
       </div>

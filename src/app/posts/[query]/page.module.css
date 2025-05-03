@@ -1,13 +1,14 @@
 .featuredImg {
-  position: relative;
   width: 100%;
   max-width: 800px;
   margin: 15px auto;
-  aspect-ratio: 1200 / 630;
-  overflow: hidden;
 }
+
 .img {
+  width: 100%;
+  height: auto;
   object-fit: cover;
+  display: block;
 }
 .full_cont {
   background-color: #fffff4c4;
