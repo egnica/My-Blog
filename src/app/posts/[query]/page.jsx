@@ -76,7 +76,6 @@ const Page = ({ params }) => {
               style={{ width: "80%" }}
               controls
               onEnded={() => handleEnded(videoRef1)}
-              playsInline
               preload="metadata"
             >
               <source src={foundPost.video_1} type="video/mp4" />
@@ -106,7 +105,6 @@ const Page = ({ params }) => {
               style={{ width: "80%" }}
               controls
               onEnded={() => handleEnded(videoRef2)}
-              playsInline
               preload="metadata"
             >
               <source src={foundPost.video_2} type="video/mp4" />
@@ -147,7 +145,6 @@ const Page = ({ params }) => {
               style={{ width: "80%" }}
               controls
               onEnded={() => handleEnded(videoRef4)}
-              playsInline
               preload="metadata"
             >
               <source src={foundPost.video_4} type="video/mp4" />
