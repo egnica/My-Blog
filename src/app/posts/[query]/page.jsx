@@ -4,8 +4,6 @@ import Image from "next/image";
 import Posts from "../../posts.json";
 import styles from "./page.module.css";
 import Vibe from "../../../components/VibeButton";
-import Footer from "../../../components/Footer";
-import Link from "next/link";
 import { marked } from "marked";
 import Prism from "prismjs";
 import "prismjs/themes/prism.css";
