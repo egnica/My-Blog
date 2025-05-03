@@ -1,4 +1,5 @@
 import Posts from "../posts.json";
+
 export async function GET() {
   const baseUrl = "https://latestartdev.com";
 
@@ -7,7 +8,7 @@ export async function GET() {
         <url>
           <loc>${baseUrl}/posts/${post.query}</loc>
           <lastmod>${new Date(
-            post.lastModified || post.date
+            post.modified_time || post.date
           ).toISOString()}</lastmod>
         </url>`;
   });
