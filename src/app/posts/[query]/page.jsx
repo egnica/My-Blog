@@ -57,6 +57,7 @@ const Page = ({ params }) => {
           fill
           alt={foundPost.title}
           priority={true}
+          sizes="(max-width: 768px) 90vw, 800px"
         />
       </div>
       <div>
