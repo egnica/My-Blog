@@ -1,46 +1,28 @@
-"use client";
-import React from "react";
-import Image from "next/image";
 import Posts from "../../posts.json";
-import styles from "./page.module.css";
+import Image from "next/image";
 import Vibe from "../../../components/VibeButton";
-import { marked } from "marked";
-import Prism from "prismjs";
-import "prismjs/themes/prism.css";
-import "prismjs/components/prism-javascript";
-import { useEffect, useRef } from "react";
 import BlogJsonLd from "../../../components/BlogJsonLd";
+import styles from "./page.module.css";
+import BlogPostContent from "../../../components/BlogPostContent";
+import { marked } from "marked";
 
-marked.setOptions({
-  highlight: function (code, lang) {
-    const language = Prism.languages[lang] || Prism.languages.javascript;
-    return Prism.highlight(code, language, lang);
-  },
-  langPrefix: "language-", // required for Prism CSS to apply
-});
+export async function generateStaticParams() {
+  return Posts.posts.map((post) => ({
+    query: post.query,
+  }));
+}
 
-const Page = ({ params }) => {
+export default async function Page({ params }) {
   const queryString = params.query;
   const foundPost = Posts.posts.find((item) => item.query === queryString);
 
-  const videoRef1 = useRef(null);
-  const videoRef2 = useRef(null);
-  const videoRef4 = useRef(null);
+  if (!foundPost) return <div>Post not found.</div>;
 
-  const handleEnded = (ref) => {
-    if (ref.current) {
-      ref.current.currentTime = 0;
-      ref.current.pause = true;
-    }
-  };
-
-  useEffect(() => {
-    Prism.highlightAll();
-  }, []);
-
-  if (!foundPost) {
-    return <div>Post not found.</div>;
-  }
+  // Convert markdown to HTML server-side
+  const body_1_html = marked(foundPost.body_1 || "");
+  const body_2_html = marked(foundPost.body_2 || "");
+  const body_3_html = marked(foundPost.body_3 || "");
+  const body_4_html = marked(foundPost.body_4 || "");
 
   return (
     <>
@@ -63,103 +45,13 @@ const Page = ({ params }) => {
         <Vibe trans={foundPost.vibe_audio} />
       </div>
 
-      <div className={styles.full_cont}>
-        <div
-          className={styles.content_container}
-          dangerouslySetInnerHTML={{ __html: marked(foundPost.body_1) }}
-        ></div>
-
-        {foundPost.video_1 != null && (
-          <div className={styles.video_container}>
-            <video
-              ref={videoRef1}
-              style={{ width: "80%" }}
-              controls
-              onEnded={() => handleEnded(videoRef1)}
-              preload="metadata"
-            >
-              <source src={foundPost.video_1} type="video/mp4" />
-            </video>
-          </div>
-        )}
-        {foundPost.image_1 != null && (
-          <div className={styles.image_container}>
-            <Image
-              className="img"
-              src={foundPost.image_1}
-              fill
-              alt={foundPost.title}
-            />
-          </div>
-        )}
-        {foundPost.body_2 != null && (
-          <div
-            className={styles.content_container}
-            dangerouslySetInnerHTML={{ __html: marked(foundPost.body_2) }}
-          ></div>
-        )}
-        {foundPost.video_2 != null && (
-          <div className={styles.video_container}>
-            <video
-              ref={videoRef2}
-              style={{ width: "80%" }}
-              controls
-              onEnded={() => handleEnded(videoRef2)}
-              preload="metadata"
-            >
-              <source src={foundPost.video_2} type="video/mp4" />
-            </video>
-          </div>
-        )}
-        {foundPost.image_2 != null && (
-          <div className={styles.image_container}>
-            <Image
-              className="img"
-              src={foundPost.image_2}
-              fill
-              alt={foundPost.title}
-            />
-          </div>
-        )}
-        {foundPost.body_3 != null && (
-          <div
-            className={styles.content_container}
-            dangerouslySetInnerHTML={{ __html: marked(foundPost.body_3) }}
-          ></div>
-        )}
-        {foundPost.image_3 != null && (
-          <div className={styles.image_container}>
-            <Image
-              className="img"
-              src={foundPost.image_3}
-              alt={foundPost.title}
-              fill
-            />
-          </div>
-        )}
-
-        {foundPost.video_4 != null && (
-          <div className={styles.video_container}>
-            <video
-              ref={videoRef4}
-              style={{ width: "80%" }}
-              controls
-              onEnded={() => handleEnded(videoRef4)}
-              preload="metadata"
-            >
-              <source src={foundPost.video_4} type="video/mp4" />
-            </video>
-          </div>
-        )}
-        {foundPost.body_4 != null && (
-          <div
-            className={styles.content_container}
-            dangerouslySetInnerHTML={{ __html: marked(foundPost.body_4) }}
-          ></div>
-        )}
-      </div>
+      <BlogPostContent
+        post={foundPost}
+        body_1_html={body_1_html}
+        body_2_html={body_2_html}
+        body_3_html={body_3_html}
+        body_4_html={body_4_html}
+      />
     </>
   );
-};
-
-export default Page;
+}
