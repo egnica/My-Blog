@@ -13,7 +13,50 @@ import Image from "next/image";
 import { marked } from "marked";
 
 function markdownHtml(value = "") {
-  return marked.parse(value);
+  return marked.parse(value, {
+    gfm: true,
+    breaks: true,
+  });
+}
+
+function normalizeText(value = "") {
+  return String(value)
+    .replace(/\r\n/g, "\n")
+    .split("\n")
+    .map((line) => line.replace(/[\t ]+$/g, ""))
+    .join("\n")
+    .trim();
+}
+
+function ParagraphBlock({ block }) {
+  const chunks = normalizeText(block.text)
+    .split(/\n\s*\n+/)
+    .map((chunk) => chunk.trim())
+    .filter(Boolean);
+
+  if (!chunks.length) return null;
+
+  const hasSupportingCopy = chunks.length > 1;
+
+  return (
+    <div className={styles.content_container}>
+      <div className={styles.text_block}>
+        {chunks.map((chunk, index) => (
+          <div
+            key={index}
+            className={
+              hasSupportingCopy && index === 0
+                ? styles.paragraph_lead
+                : styles.paragraph_body
+            }
+            dangerouslySetInnerHTML={{
+              __html: markdownHtml(chunk),
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }
 
 function markdownInline(value = "") {
@@ -74,13 +117,7 @@ export default function BlogPostContent({ post }) {
         switch (block.type) {
           case "paragraph":
           case "text":
-            return (
-              <div
-                key={key}
-                className={styles.content_container}
-                dangerouslySetInnerHTML={{ __html: markdownHtml(block.text) }}
-              />
-            );
+            return <ParagraphBlock key={key} block={block} />;
 
           case "heading": {
             const level = Math.min(Math.max(Number(block.level) || 2, 1), 6);
