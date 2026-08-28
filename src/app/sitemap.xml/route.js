@@ -1,7 +1,23 @@
-import Posts from "../posts.json";
+import {
+  BLOG_REVALIDATE_SECONDS,
+  getBlogPosts,
+} from "../../../lib/blogData";
+
+export const revalidate = BLOG_REVALIDATE_SECONDS;
+
+function toIsoDate(value) {
+  if (!value) return new Date().toISOString();
+
+  const date = new Date(value);
+
+  return Number.isNaN(date.getTime())
+    ? new Date().toISOString()
+    : date.toISOString();
+}
 
 export async function GET() {
   const baseUrl = "https://latestartdev.com";
+  const posts = await getBlogPosts();
 
   const staticUrls = [
     {
@@ -18,9 +34,9 @@ export async function GET() {
     },
   ];
 
-  const postUrls = Posts.posts.map((post) => ({
-    loc: `${baseUrl}/posts/${post.query}`,
-    lastmod: new Date(post.modified_time || post.date).toISOString(),
+  const postUrls = posts.map((post) => ({
+    loc: `${baseUrl}/posts/${post.slug}`,
+    lastmod: toIsoDate(post.modified_time || post.published_time || post.date),
   }));
 
   const urls = [...staticUrls, ...postUrls]
@@ -29,7 +45,7 @@ export async function GET() {
     <url>
       <loc>${url.loc}</loc>
       <lastmod>${url.lastmod}</lastmod>
-    </url>`
+    </url>`,
     )
     .join("\n");
 
