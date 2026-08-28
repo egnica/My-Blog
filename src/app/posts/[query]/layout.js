@@ -1,9 +1,6 @@
-import {
-  BLOG_REVALIDATE_SECONDS,
-  getBlogPost,
-} from "../../../lib/blogData";
+import { getBlogPost } from "../../../lib/blogData";
 
-export const revalidate = BLOG_REVALIDATE_SECONDS;
+export const revalidate = 60;
 
 export async function generateMetadata({ params }) {
   const foundPost = await getBlogPost(params.query, { includeHidden: true });
