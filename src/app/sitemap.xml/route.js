@@ -1,4 +1,4 @@
-import { getBlogPosts } from "../../../lib/blogData";
+import { getBlogPosts } from "../../lib/blogData";
 
 export const revalidate = 60;
 
