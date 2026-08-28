@@ -1,57 +1,110 @@
-import Posts from "../../posts.json";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import Vibe from "../../../components/VibeButton";
 import BlogJsonLd from "../../../components/BlogJsonLd";
 import styles from "./page.module.css";
 import BlogPostContent from "../../../components/BlogPostContent";
-import { marked } from "marked";
+import {
+  BLOG_REVALIDATE_SECONDS,
+  getBlogPost,
+  getBlogPosts,
+} from "../../../lib/blogData";
+
+export const revalidate = BLOG_REVALIDATE_SECONDS;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  return Posts.posts.map((post) => ({
-    query: post.query,
+  const posts = await getBlogPosts();
+
+  return posts.map((post) => ({
+    query: post.slug,
   }));
+}
+
+function PrimaryVideo({ post }) {
+  const video = post.primaryVideo;
+
+  if (!video) return null;
+
+  const sources =
+    typeof video.src === "string"
+      ? { mp4: video.src }
+      : video.src || {};
+
+  if (!sources.mp4 && !sources.webm) return null;
+
+  return (
+    <>
+      <div className={styles.primaryVideo}>
+        <video
+          controls
+          preload="metadata"
+          playsInline
+          poster={video.thumbnail}
+          aria-label={`Video: ${video.title || post.title}`}
+        >
+          {sources.webm && (
+            <source src={sources.webm} type="video/webm" />
+          )}
+          {sources.mp4 && <source src={sources.mp4} type="video/mp4" />}
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      {video.youtube?.url && (
+        <a
+          className={styles.primaryVideoLink}
+          href={video.youtube.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {video.youtube.label || "Watch on YouTube"}
+        </a>
+      )}
+    </>
+  );
 }
 
 export default async function Page({ params }) {
   const queryString = params.query;
-  const foundPost = Posts.posts.find((item) => item.query === queryString);
+  const foundPost = await getBlogPost(queryString);
 
-  if (!foundPost) return <div>Post not found.</div>;
-
-  // Convert markdown to HTML server-side
-  const body_1_html = marked(foundPost.body_1 || "");
-  const body_2_html = marked(foundPost.body_2 || "");
-  const body_3_html = marked(foundPost.body_3 || "");
-  const body_4_html = marked(foundPost.body_4 || "");
+  if (!foundPost) notFound();
 
   return (
     <>
       <BlogJsonLd post={foundPost} />
-      <div style={{ padding: "10px" }}></div>
+
+      <div style={{ padding: "10px" }} />
+
       <h1>{foundPost.title}</h1>
       <p>{foundPost.date}</p>
-      <div className={styles.featuredImg}>
-        <Image
-          className={styles.img}
-          src={foundPost.article_image}
-          alt={foundPost.title}
-          width={800}
-          height={420}
-          priority
-          sizes="(max-width: 768px) 90vw, 800px"
-        />
-      </div>
-      <div>
-        <Vibe trans={foundPost.vibe_audio} />
-      </div>
 
-      <BlogPostContent
-        post={foundPost}
-        body_1_html={body_1_html}
-        body_2_html={body_2_html}
-        body_3_html={body_3_html}
-        body_4_html={body_4_html}
-      />
+      {foundPost.primaryVideo ? (
+        <PrimaryVideo post={foundPost} />
+      ) : (
+        foundPost.hero_image && (
+          <div className={styles.featuredImg}>
+            <Image
+              className={styles.img}
+              src={foundPost.hero_image}
+              alt={foundPost.title}
+              width={1200}
+              height={630}
+              priority
+              sizes="(max-width: 768px) 94vw, 900px"
+            />
+          </div>
+        )
+      )}
+
+      {foundPost.vibe_audio && (
+        <div>
+          <Vibe trans={foundPost.vibe_audio} />
+        </div>
+      )}
+
+      <BlogPostContent post={foundPost} />
     </>
   );
 }
