@@ -4,13 +4,9 @@ import Vibe from "../../../components/VibeButton";
 import BlogJsonLd from "../../../components/BlogJsonLd";
 import styles from "./page.module.css";
 import BlogPostContent from "../../../components/BlogPostContent";
-import {
-  BLOG_REVALIDATE_SECONDS,
-  getBlogPost,
-  getBlogPosts,
-} from "../../../lib/blogData";
+import { getBlogPost, getBlogPosts } from "../../../lib/blogData";
 
-export const revalidate = BLOG_REVALIDATE_SECONDS;
+export const revalidate = 60;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
