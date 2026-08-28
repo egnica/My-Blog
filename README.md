@@ -8,11 +8,15 @@ Built with Next.js and deployed via AWS Amplify, the blog uses Amazon S3 for med
 
 Late Start Dev is an evolving record of progress, persistence, and the belief that momentum matters more than timing.
 
-
 ## Shared blog content
 
-Post content is no longer maintained in this repository. Late Start Dev reads its posts from the canonical `blog.json` file in `egnica/new-nicholasegner.com`:
+Post content is maintained in the canonical `blog.js` file in
+`egnica/new-nicholasegner.com`.
 
-`https://raw.githubusercontent.com/egnica/new-nicholasegner.com/main/blog.json`
+nicholasegner.com imports that JavaScript source directly and exposes the live,
+serializable post data at:
 
-The app revalidates that shared data every 60 seconds, so updates to the canonical JSON can flow to both nicholasegner.com and Late Start Dev without maintaining two post files.
+`https://www.nicholasegner.com/api/blog`
+
+Late Start Dev reads that endpoint and revalidates the feed every 60 seconds, so
+there is only one post source to maintain across both sites.
