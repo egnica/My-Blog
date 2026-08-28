@@ -1,112 +1,214 @@
 "use client";
-import { useEffect, useRef } from "react";
+
+import { useEffect } from "react";
 import Prism from "prismjs";
 import "prismjs/themes/prism.css";
 import "prismjs/components/prism-javascript";
 import styles from "../app/posts/[query]/page.module.css";
 import Image from "next/image";
+import { marked } from "marked";
 
-export default function BlogPostContent({
-  post,
-  body_1_html,
-  body_2_html,
-  body_3_html,
-  body_4_html,
-}) {
-  const videoRef1 = useRef(null);
-  const videoRef2 = useRef(null);
-  const videoRef4 = useRef(null);
+function markdownHtml(value = "") {
+  return marked.parse(value);
+}
 
+function markdownInline(value = "") {
+  return marked.parseInline(value);
+}
+
+function VideoBlock({ block }) {
+  const src =
+    typeof block.src === "string"
+      ? { mp4: block.src }
+      : block.src || {};
+
+  const directSrc = src.mp4 || src.webm;
+
+  if (!directSrc) return null;
+
+  return (
+    <div className={styles.video_container}>
+      <video
+        controls={block.controls !== false}
+        autoPlay={Boolean(block.autoplay)}
+        muted={Boolean(block.muted)}
+        loop={Boolean(block.loop)}
+        playsInline
+        preload="metadata"
+        poster={block.poster}
+      >
+        {src.webm && <source src={src.webm} type="video/webm" />}
+        {src.mp4 && <source src={src.mp4} type="video/mp4" />}
+      </video>
+
+      {block.youtube?.url && (
+        <a
+          className={styles.video_link}
+          href={block.youtube.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {block.youtube.label || "Watch on YouTube"}
+        </a>
+      )}
+    </div>
+  );
+}
+
+export default function BlogPostContent({ post }) {
   useEffect(() => {
     Prism.highlightAll();
-  }, []);
+  }, [post]);
 
-  const handleEnded = (ref) => {
-    if (ref.current) {
-      ref.current.currentTime = 0;
-      ref.current.pause = true;
-    }
-  };
+  const blocks = Array.isArray(post.contentBlocks) ? post.contentBlocks : [];
 
   return (
     <div className={styles.full_cont}>
-      <div
-        className={styles.content_container}
-        dangerouslySetInnerHTML={{ __html: body_1_html }}
-      ></div>
+      {blocks.map((block, index) => {
+        const key = `${block.type || "block"}-${index}`;
 
-      {post.video_1 && (
-        <div className={styles.video_container}>
-          <video
-            ref={videoRef1}
-            style={{ width: "80%" }}
-            controls
-            onEnded={() => handleEnded(videoRef1)}
-            preload="metadata"
-          >
-            <source src={post.video_1} type="video/mp4" />
-          </video>
-        </div>
-      )}
-      {post.image_1 && (
-        <div className={styles.image_container}>
-          <Image className="img" src={post.image_1} fill alt={post.title} />
-        </div>
-      )}
-      {body_2_html && (
-        <div
-          className={styles.content_container}
-          dangerouslySetInnerHTML={{ __html: body_2_html }}
-        ></div>
-      )}
-      {post.video_2 && (
-        <div className={styles.video_container}>
-          <video
-            ref={videoRef2}
-            style={{ width: "80%" }}
-            controls
-            onEnded={() => handleEnded(videoRef2)}
-            preload="metadata"
-          >
-            <source src={post.video_2} type="video/mp4" />
-          </video>
-        </div>
-      )}
-      {post.image_2 && (
-        <div className={styles.image_container}>
-          <Image className="img" src={post.image_2} fill alt={post.title} />
-        </div>
-      )}
-      {body_3_html && (
-        <div
-          className={styles.content_container}
-          dangerouslySetInnerHTML={{ __html: body_3_html }}
-        ></div>
-      )}
-      {post.image_3 && (
-        <div className={styles.image_container}>
-          <Image className="img" src={post.image_3} alt={post.title} fill />
-        </div>
-      )}
-      {post.video_4 && (
-        <div className={styles.video_container}>
-          <video
-            ref={videoRef4}
-            style={{ width: "80%" }}
-            controls
-            onEnded={() => handleEnded(videoRef4)}
-            preload="metadata"
-          >
-            <source src={post.video_4} type="video/mp4" />
-          </video>
-        </div>
-      )}
-      {body_4_html && (
-        <div
-          className={styles.content_container}
-          dangerouslySetInnerHTML={{ __html: body_4_html }}
-        ></div>
-      )}
+        switch (block.type) {
+          case "paragraph":
+          case "text":
+            return (
+              <div
+                key={key}
+                className={styles.content_container}
+                dangerouslySetInnerHTML={{ __html: markdownHtml(block.text) }}
+              />
+            );
+
+          case "heading": {
+            const level = Math.min(Math.max(Number(block.level) || 2, 1), 6);
+            const HeadingTag = `h${level}`;
+
+            return (
+              <div key={key} className={styles.content_container}>
+                <HeadingTag>{block.text}</HeadingTag>
+              </div>
+            );
+          }
+
+          case "image":
+            if (!block.src) return null;
+
+            return (
+              <figure key={key} className={styles.image_figure}>
+                <div className={styles.image_container}>
+                  <Image
+                    className={styles.img}
+                    src={block.src}
+                    fill
+                    sizes="(max-width: 900px) 94vw, 900px"
+                    alt={block.alt || post.title}
+                  />
+                </div>
+
+                {block.caption && (
+                  <figcaption className={styles.image_caption}>
+                    {block.caption}
+                  </figcaption>
+                )}
+              </figure>
+            );
+
+          case "video":
+            return <VideoBlock key={key} block={block} />;
+
+          case "code": {
+            const language = block.language || block.lang || "javascript";
+
+            return (
+              <div key={key} className={styles.code_container}>
+                {block.filename && (
+                  <p className={styles.code_filename}>{block.filename}</p>
+                )}
+                <pre className={`language-${language}`}>
+                  <code className={`language-${language}`}>
+                    {block.code || ""}
+                  </code>
+                </pre>
+              </div>
+            );
+          }
+
+          case "list":
+          case "ul": {
+            const ListTag = block.ordered ? "ol" : "ul";
+
+            return (
+              <div key={key} className={styles.content_container}>
+                <ListTag>
+                  {(block.items || []).map((item, itemIndex) => (
+                    <li
+                      key={itemIndex}
+                      dangerouslySetInnerHTML={{
+                        __html: markdownInline(item),
+                      }}
+                    />
+                  ))}
+                </ListTag>
+              </div>
+            );
+          }
+
+          case "quote":
+            return (
+              <div key={key} className={styles.content_container}>
+                <blockquote
+                  className={styles.quote}
+                  dangerouslySetInnerHTML={{
+                    __html: markdownHtml(block.text),
+                  }}
+                />
+              </div>
+            );
+
+          case "callout":
+            return (
+              <div key={key} className={styles.content_container}>
+                <div
+                  className={styles.callout}
+                  dangerouslySetInnerHTML={{
+                    __html: markdownHtml(block.text),
+                  }}
+                />
+              </div>
+            );
+
+          case "embed":
+            if (!block.src) return null;
+
+            return (
+              <div key={key} className={styles.embed_container}>
+                <iframe
+                  src={block.src}
+                  title={block.title || `Embedded content for ${post.title}`}
+                  loading="lazy"
+                  allowFullScreen
+                />
+              </div>
+            );
+
+          case "link":
+            if (!block.href) return null;
+
+            return (
+              <div key={key} className={styles.content_container}>
+                <a
+                  href={block.href}
+                  target={block.target}
+                  rel={block.rel}
+                >
+                  {block.label || block.href}
+                </a>
+              </div>
+            );
+
+          default:
+            return null;
+        }
+      })}
     </div>
   );
 }
