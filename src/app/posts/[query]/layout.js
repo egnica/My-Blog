@@ -1,48 +1,78 @@
-import Posts from "../../posts.json";
+import {
+  BLOG_REVALIDATE_SECONDS,
+  getBlogPost,
+} from "../../../lib/blogData";
 
-export async function generateMetadata(params) {
-  const queryString = params.params.query;
-  const foundPost = Posts.posts.find((item) => item.query === queryString);
+export const revalidate = BLOG_REVALIDATE_SECONDS;
+
+export async function generateMetadata({ params }) {
+  const foundPost = await getBlogPost(params.query, { includeHidden: true });
 
   if (!foundPost) {
     return {
       title: "Post Not Found",
       description: "This post could not be found.",
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
+  const url = `https://latestartdev.com/posts/${foundPost.slug}`;
+  const image = foundPost.meta_image || foundPost.hero_image;
+
   return {
-    title: foundPost.title,
-    description: foundPost.description,
+    title: foundPost.meta_title || foundPost.title,
+    description:
+      foundPost.meta_description ||
+      foundPost.description ||
+      "A post from Nicholas Egner on Late Start Dev.",
     keywords: foundPost.keywords,
-    author: "Nicholas Egner",
-    openGraph: {
-      title: foundPost.title,
-      site_name: "Late Start Dev",
-      description: foundPost.description,
-      url: `https://latestartdev.com/posts/${foundPost.query}`,
-      type: "article",
-      images: [
-        {
-          url: foundPost.article_image,
-          width: 1200,
-          height: 630,
-        },
-      ],
+    authors: [{ name: "Nicholas Egner", url: "https://nicholasegner.com" }],
+
+    robots: {
+      index: foundPost.live,
+      follow: foundPost.live,
     },
+
+    alternates: {
+      canonical: url,
+    },
+
+    openGraph: {
+      title: foundPost.meta_title || foundPost.title,
+      siteName: "Late Start Dev",
+      description:
+        foundPost.meta_description ||
+        foundPost.description ||
+        "A post from Nicholas Egner on Late Start Dev.",
+      url,
+      type: "article",
+      publishedTime: foundPost.published_time || undefined,
+      modifiedTime: foundPost.modified_time || undefined,
+      images: image
+        ? [
+            {
+              url: image,
+              width: 1200,
+              height: 630,
+              alt: foundPost.title,
+            },
+          ]
+        : [],
+    },
+
     twitter: {
       card: "summary_large_image",
       site: "@NicholasEgner",
       creator: "@NicholasEgner",
-      title: foundPost.title,
-      description: foundPost.description,
-      image: foundPost.article_image,
-    },
-    other: {
-      canonical: `https://latestartdev.com/posts/${foundPost.query}`,
-      author: "Nicholas Egner",
-      viewport: "width=device-width, initial-scale=1",
-      robots: "index, follow",
+      title: foundPost.meta_title || foundPost.title,
+      description:
+        foundPost.meta_description ||
+        foundPost.description ||
+        "A post from Nicholas Egner on Late Start Dev.",
+      images: image ? [image] : [],
     },
   };
 }
