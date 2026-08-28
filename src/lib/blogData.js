@@ -1,5 +1,5 @@
 const BLOG_DATA_URL =
-  "https://raw.githubusercontent.com/egnica/new-nicholasegner.com/main/blog.json";
+  "https://www.nicholasegner.com/api/blog";
 
 export const BLOG_REVALIDATE_SECONDS = 60;
 
