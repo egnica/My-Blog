@@ -1,9 +1,6 @@
-import {
-  BLOG_REVALIDATE_SECONDS,
-  getBlogPosts,
-} from "../../../lib/blogData";
+import { getBlogPosts } from "../../../lib/blogData";
 
-export const revalidate = BLOG_REVALIDATE_SECONDS;
+export const revalidate = 60;
 
 function toIsoDate(value) {
   if (!value) return new Date().toISOString();
