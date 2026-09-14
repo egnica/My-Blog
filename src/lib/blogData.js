@@ -1,5 +1,5 @@
 const BLOG_DATA_URL =
-  "https://www.nicholasegner.com/api/blog";
+  "https://main.d37c76h1ruhsqz.amplifyapp.com/api/blog?site=latestartdev";
 
 export const BLOG_REVALIDATE_SECONDS = 60;
 
